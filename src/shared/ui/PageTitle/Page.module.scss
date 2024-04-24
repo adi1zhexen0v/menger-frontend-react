@@ -1,0 +1,11 @@
+@import "../../assets/scss/lib/mixins";
+@import "../../assets/scss/lib/variables";
+
+.title {
+  @include text(40px, 44px, 800, $black);
+  margin-bottom: 20px;
+
+  span {
+    color: $blue;
+  }
+}     

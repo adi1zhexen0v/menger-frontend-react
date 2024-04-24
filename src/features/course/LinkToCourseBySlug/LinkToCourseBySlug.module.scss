@@ -1,0 +1,17 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.link {
+  @include flex(flex-end, center);
+  @include text(18px, 18px, 700, $blue);
+  gap: 12px;
+  transition: 0.2s ease;
+  
+  svg {
+    height: 20px;
+  }
+
+  &:hover {
+    color: rgba($blue, 0.7);
+  }
+}

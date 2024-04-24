@@ -1,0 +1,106 @@
+@import "../../../../shared/assets/scss/lib/mixins";
+@import "../../../../shared/assets/scss/lib/variables";
+
+
+.title {
+  max-width: 600px;
+}
+
+.header {
+  @include flex();
+}
+
+.list {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 45px;
+}
+
+.course {
+  width: 100%;
+  position: relative;
+  border: 1px solid $border;
+  border-radius: 18px; 
+}
+
+.image {
+  height: 220px;
+  border: 1px solid $border;
+  border-radius: 18px;
+  overflow: hidden;
+
+  img {
+    border-radius: 18px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.body {
+  padding: 16px 24px;
+}
+
+.title {
+  max-width: 300px;
+  @include text(22px, 26px, 700, $black);
+}
+
+.info {
+  &-list {
+    @include flex();
+    padding-bottom: 24px;
+    border-bottom: 1px solid $border;
+  }
+
+  &-item {
+    @include flex(flex-start, center);
+    gap: 8px;
+
+    svg {
+      width: 24px;
+      color: $blue;
+    }
+
+    p {
+      @include text(12px, 14px, 500, $light-gray)
+    }
+  }
+}
+
+.footer {
+  @include flex();
+  padding-top: 22px;
+}
+
+.price {
+  @include text(20px, 20px, 700, $blue);
+  @include flex(flex-start, center);
+  gap: 4px;
+  
+  svg {
+    margin-top: -2px;
+    color: $blue;
+    height: 16px;
+  }
+}
+
+.rating {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 60px;
+  height: 24px;
+  border-radius: 48px;
+  background: $gray;
+  @include flex(center, center);
+  gap: 4px;
+
+  @include text(14px, 14px, 700, $white);
+
+  svg {
+    color: $yellow;
+    width: 16px;
+  }
+}

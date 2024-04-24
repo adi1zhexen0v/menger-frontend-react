@@ -1,4 +1,4 @@
-import { Header } from "@widgets/header";
+import { Header } from "@widgets/layout/header";
 
 interface Props {
   children?: React.ReactNode;

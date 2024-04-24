@@ -1,0 +1,75 @@
+@import "../../../../shared/assets/scss/lib/mixins";
+@import "../../../../shared/assets/scss/lib/variables";
+
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  padding: 20px 0;
+  background: rgba($white, 0.75);
+  backdrop-filter: blur(4px);
+  border-bottom: 1px solid rgba($black, 0.2);
+  box-shadow: 4px 4px 8px 0px rgba(60, 60, 60, 0.1);
+}
+
+.navbar {
+  @include flex();
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.logo {
+  font-family: "Acme", sans-serif;
+  @include text(32px, 32px, 400, $blue);
+}
+
+.part {
+  &:first-child {
+    @include flex(flex-start, center);
+    gap: 100px;
+  }
+
+  &:last-child {
+    @include flex(flex-end, center);
+    gap: 24px;
+  }
+}
+
+.link {
+  &-list {
+    @include flex();
+    gap: 36px;
+  }
+
+  &-item {
+    a {
+      @include text(18px, 18px, 600, $black);
+      transition: 0.2s ease;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+
+    &__active {
+      a {
+        position: relative;
+        transition: 0.2s ease;
+        
+        &::after {
+          content: '';
+          height: 3px;
+          width: 100%;
+          background: $blue;
+          border-radius: 20px;
+          position: absolute;
+          bottom: -6px;
+          left: 0;
+          transition: 0.2s ease;
+        }
+      }
+    }
+  }
+}

@@ -3,16 +3,6 @@ import react from '@vitejs/plugin-react'
 import path from 'path';
 
 export default defineConfig({
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `
-          @import "./src/shared/assets/scss/lib/variables";
-          @import "./src/shared/assets/scss/lib/mixins";
-        `
-      }
-    }
-  },
   resolve: {
     alias: {
       '@app': path.resolve(__dirname, './src/app'),
