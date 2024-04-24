@@ -1,0 +1,24 @@
+@import "../../../../shared/assets/scss/lib/mixins";
+@import "../../../../shared/assets/scss/lib/variables";
+
+.faq {
+  @include flex(flex-start, flex-start);
+  gap: 60px;
+}
+
+.part {
+  &:first-child {
+    width: 35%;
+  }
+
+  &:last-child {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+}
+
+.img {
+  width: 100%;
+}

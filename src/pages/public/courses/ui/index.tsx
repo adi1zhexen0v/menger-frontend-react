@@ -1,6 +1,6 @@
-import useLatestCourses from "@entities/course/lib/useLatestCourses";
-import { Loader } from "@shared/ui/Loader";
-import { PageTitle } from "@shared/ui/PageTitle";
+import { useLatestCourses } from "@entities/course/";
+import { Loader } from "@shared/ui/";
+import { PageTitle } from "@shared/ui/";
 import { CoursesGrid } from "@widgets/course/CoursesGrid";
 import styles from "./CoursesPage.module.scss";
 

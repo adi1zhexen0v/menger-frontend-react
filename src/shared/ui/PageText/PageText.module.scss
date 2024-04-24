@@ -1,0 +1,6 @@
+@import "../../assets/scss/lib/mixins";
+@import "../../assets/scss/lib/variables";
+
+.text {
+  @include text(18px, 28px, 400, $gray);
+}     

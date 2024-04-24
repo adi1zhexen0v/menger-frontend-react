@@ -1,0 +1,56 @@
+@import "../../../../shared/assets/scss/lib/mixins";
+@import "../../../../shared/assets/scss/lib/variables";
+
+.footer {
+  background: $blue;
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto; 
+}
+
+.logo {
+  font-family: "Acme", sans-serif;
+  @include text(32px, 32px, 400, $white);
+  margin-bottom: 24px;
+}
+
+.text {
+  @include text(18px, 28px, 600, $white);
+}
+
+.title {
+  @include text(28px, 32px, 800, $white);
+  margin-bottom: 24px;
+}
+
+.link {
+  display: block;
+  @include text(16px, 28px, 500, $white);
+  &:not(:last-child) {
+      margin-bottom: 12px;
+  }
+}
+
+.header {
+  padding: 48px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 45px;
+}
+
+.bottom {
+  padding: 12px 0;
+  background: $black;
+
+  &-container {
+    width: 1200px;
+    margin: 0 auto; 
+    @include flex(space-between, center);
+  }
+
+  &-text {
+    @include text(18px, 28px, 700, $light-gray);
+  }
+}

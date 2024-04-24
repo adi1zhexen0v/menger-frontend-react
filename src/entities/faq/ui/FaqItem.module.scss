@@ -1,0 +1,56 @@
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
+
+.item {
+  padding: 20px 28px;
+  border: 1px solid $border;
+  border-radius: 20px;
+  position: relative;
+
+  &__active {
+    background: rgba($light-blue, 0.6);
+  }
+}
+
+.btn {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  @include flex(center, center);
+  transition: 0.2s ease;
+
+  svg {
+    width: 20px;
+    color: $blue;
+  }
+
+  &:hover {
+    background: $blue;
+    cursor: pointer;
+
+    svg {
+      color: $white;
+    }
+  }
+
+  &__active {
+    background: $blue;
+
+    svg {
+      color: $white;
+    }
+  }
+}
+
+.question {
+  @include text(20px, 28px, 700, $black);
+  margin-right: 30px;
+}
+
+.answer {
+  margin-top: 18px;
+  @include text(15px, 24px, 400, $gray);
+}
