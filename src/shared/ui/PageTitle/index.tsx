@@ -1,9 +1,9 @@
 import styles from "./Page.module.scss";
 
 interface Props {
-  title: string;
+  children: string;
 }
 
-export const PageTitle: React.FC<Props> = ({ title }) => {
-  return <h2 className={styles.title}>{title}</h2>;
+export const PageTitle: React.FC<Props> = ({ children }) => {
+  return <h2 className={styles.title}>{children}</h2>;
 };

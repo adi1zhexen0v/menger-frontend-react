@@ -1,3 +1,9 @@
+import { HomeSection } from "@widgets/main";
+
 export const MainPage: React.FC = () => {
-  return <div>MainPage</div>;
+  return (
+    <>
+      <HomeSection />
+    </>
+  );
 };

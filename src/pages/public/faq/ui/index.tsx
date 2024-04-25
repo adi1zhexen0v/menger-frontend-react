@@ -7,11 +7,11 @@ export const FaqPage: React.FC = () => {
   return (
     <section className={styles.faq}>
       <div className={styles.part}>
-        <PageTitle title="Жиі қойылатын сұрақтарға жауаптар" />
-        <PageText
-          text="Мұнда сіз біздің курстар туралы жиі кездесетін сұрақтарға жауап таба аласыз. Егер сізде
-          қосымша сұрақтар туындаса, біздің қолдау қызметіне хабарласыңыз."
-        />
+        <PageTitle>Жиі қойылатын сұрақтарға жауаптар</PageTitle>
+        <PageText>
+          Мұнда сіз біздің курстар туралы жиі кездесетін сұрақтарға жауап таба аласыз. Егер сізде
+          қосымша сұрақтар туындаса, біздің қолдау қызметіне хабарласыңыз.
+        </PageText>
         <img src={faqImage} alt="FAQ" className={styles.img} />
       </div>
       <div className={styles.part}>

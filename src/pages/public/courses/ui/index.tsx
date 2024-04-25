@@ -13,7 +13,7 @@ export const CoursesPage: React.FC = () => {
 
   return (
     <div>
-      <PageTitle title="Курстар" />
+      <PageTitle>Курстар</PageTitle>
       <div className={styles.wrapper}>
         <CoursesGrid courses={data!} />
       </div>

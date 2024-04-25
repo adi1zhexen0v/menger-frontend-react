@@ -1,9 +1,9 @@
+import styles from "./PageText.module.scss";
+
 interface Props {
-  text: string;
+  children: string;
 }
 
-export const PageText: React.FC<Props> = ({ text }) => {
-  return (
-    <p>{text}</p>
-  )
-}
+export const PageText: React.FC<Props> = ({ children }) => {
+  return <p className={styles.text}>{children}</p>;
+};
