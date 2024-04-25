@@ -1,4 +1,4 @@
-import axiosInstance from "@shared/api/instance";
+import axiosInstance from "@shared/api";
 import { ICourse } from "./types";
 
 export const getPublicCourses = async (): Promise<ICourse[]> => {

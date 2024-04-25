@@ -1,0 +1,7 @@
+@import "../../assets/scss/lib/mixins";
+@import "../../assets/scss/lib/variables";
+
+.error {
+  margin-top: 16px;
+  @include text(16px, 16px, 600, $red);
+}

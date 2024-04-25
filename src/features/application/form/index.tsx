@@ -1,12 +1,18 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { faAt, faBuilding, faEnvelope, faPhone, faUser } from "@fortawesome/free-solid-svg-icons";
-import { ICreateApplicationRequest } from "@entities/application";
-import { Button, Input } from "@shared/ui";
+import { ICreateApplicationRequest, useCreateApplication } from "@entities/application";
+import { Button, Error, Input, Loader, Modal } from "@shared/ui";
+import { ApplicationModal } from "../modal";
 import styles from "./ApplicationForm.module.scss";
 
 export const ApplicationForm: React.FC = () => {
-  const { register, handleSubmit } = useForm<ICreateApplicationRequest>();
-  const onSubmit: SubmitHandler<ICreateApplicationRequest> = (data) => console.log(data);
+  const { mutate, data, isLoading, error } = useCreateApplication();
+
+  const { register, handleSubmit, reset } = useForm<ICreateApplicationRequest>();
+  const onSubmit: SubmitHandler<ICreateApplicationRequest> = (data) => {
+    mutate(data);
+    reset();
+  };
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
@@ -61,6 +67,13 @@ export const ApplicationForm: React.FC = () => {
         />
       </div>
       <Button title="Өтініш қалдыру" marginTop={24} />
+      {isLoading && <Loader isFullPage={true} />}
+      {data && (
+        <Modal paddingVertical={60}>
+          <ApplicationModal email={data.email} date={data.meetingDate} />
+        </Modal>
+      )}
+      {error && <Error>Өтініш жіберу барысында қателік пайда болды</Error>}
     </form>
   );
 };

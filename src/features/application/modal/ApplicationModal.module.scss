@@ -1,0 +1,15 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  @include flex(flex-start, center);
+  gap: 80px;
+
+  div {
+    width: 420px;
+
+    img {
+      width: 100%;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { HTMLInputTypeAttribute } from "react";
-import { UseFormRegister } from "react-hook-form";
+import { RegisterOptions, UseFormRegister } from "react-hook-form";
 import classNames from "classnames";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -13,6 +13,7 @@ interface Props {
   type?: HTMLInputTypeAttribute;
   register: UseFormRegister<any>;
   name: string;
+  validator?: RegisterOptions<any, string>; 
 }
 
 export const Input: React.FC<Props> = ({
