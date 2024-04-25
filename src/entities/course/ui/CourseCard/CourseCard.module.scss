@@ -104,3 +104,19 @@
     width: 16px;
   }
 }
+
+.link {
+  @include flex(flex-end, center);
+  @include text(18px, 18px, 700, $blue);
+  gap: 8px;
+  transition: 0.2s ease;
+  
+  svg {
+    margin-top: 2px;
+    height: 20px;
+  }
+
+  &:hover {
+    color: rgba($blue, 0.7);
+  }
+}

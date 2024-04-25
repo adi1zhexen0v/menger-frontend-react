@@ -1,11 +1,10 @@
-import { useLatestCourses } from "@entities/course/";
-import { Loader } from "@shared/ui/";
-import { PageTitle } from "@shared/ui/";
 import { CoursesGrid } from "@widgets/course/CoursesGrid";
+import { usePublicCourses } from "@entities/course/";
+import { Loader, PageTitle } from "@shared/ui/";
 import styles from "./CoursesPage.module.scss";
 
 export const CoursesPage: React.FC = () => {
-  const { data, isLoading } = useLatestCourses();
+  const { data, isLoading } = usePublicCourses();
 
   if (isLoading) {
     return <Loader />;

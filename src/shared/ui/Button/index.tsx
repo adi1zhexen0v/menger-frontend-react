@@ -19,7 +19,7 @@ export const Button: React.FC<Props> = ({ isLink = false, title, icon, link, mar
       {title}
     </Link>
   ) : (
-    <button className={styles.button} style={{ marginTop: `${marginTop}px` }}>
+    <button type="submit" className={styles.button} style={{ marginTop: `${marginTop}px` }}>
       {icon && <FontAwesomeIcon icon={icon} />}
       {title}
     </button>

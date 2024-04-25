@@ -1,0 +1,27 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.item {
+  width: 100%;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+  @include flex(center, center);
+
+  svg {
+    height: 28px;
+  }
+}
+
+.title {
+  max-width: 300px;
+  @include text(20px, 24px, 700, $black);
+  margin: 16px 0 12px;
+}
+
+.text {
+  @include text(16px, 24px, 600, $gray);
+}

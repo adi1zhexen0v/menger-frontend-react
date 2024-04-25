@@ -1,6 +1,6 @@
 import { faqQuestions, FaqItem } from "@entities/faq";
 import { PageText, PageTitle } from "@shared/ui/";
-import faqImage from "@shared/assets/img/faq-item.png";
+import faqImage from "@img/faq-item.png";
 import styles from "./FaqPage.module.scss";
 
 export const FaqPage: React.FC = () => {
@@ -15,8 +15,8 @@ export const FaqPage: React.FC = () => {
         <img src={faqImage} alt="FAQ" className={styles.img} />
       </div>
       <div className={styles.part}>
-        {faqQuestions.map((faq) => (
-          <FaqItem question={faq.question} answer={faq.answer} />
+        {faqQuestions.map((faq, index) => (
+          <FaqItem question={faq.question} answer={faq.answer} key={index} />
         ))}
       </div>
     </section>

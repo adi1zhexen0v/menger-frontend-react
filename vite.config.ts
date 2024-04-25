@@ -11,7 +11,8 @@ export default defineConfig({
       '@features': path.resolve(__dirname, './src/features'),
       '@entities': path.resolve(__dirname, './src/entities'),
       '@shared': path.resolve(__dirname, './src/shared'),
-      '@scss': path.resolve(__dirname, './src/shared/assets/scss')
+      '@scss': path.resolve(__dirname, './src/shared/assets/scss'),
+      '@img': path.resolve(__dirname, './src/shared/assets/img')
     },
   },
   plugins: [react()]

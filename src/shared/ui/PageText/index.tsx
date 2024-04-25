@@ -1,9 +1,16 @@
 import styles from "./PageText.module.scss";
 
+type TextAlign = "left" | "right" | "center" | "justify" | "initial" | "inherit";
+
 interface Props {
+  textAlign?: TextAlign;
   children: string;
 }
 
-export const PageText: React.FC<Props> = ({ children }) => {
-  return <p className={styles.text}>{children}</p>;
+export const PageText: React.FC<Props> = ({ children, textAlign }) => {
+  return (
+    <p className={styles.text} style={{ textAlign }}>
+      {children}
+    </p>
+  );
 };

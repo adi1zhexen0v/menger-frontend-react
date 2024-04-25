@@ -1,0 +1,24 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.container {
+  margin-top: 100px;
+  padding: 64px;
+  border-radius: 60px;
+  background: rgba($light-blue, 0.5);
+}
+
+.wrapper {
+  margin-top: 36px;
+  @include flex(flex-start, center);
+  gap: 64px;
+}
+
+.image {
+  width: 360px;
+  
+  img {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+}

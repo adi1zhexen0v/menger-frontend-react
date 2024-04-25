@@ -1,4 +1,4 @@
-import notFoundImage from "@shared/assets/img/not-found.svg";
+import notFoundImage from "@img/not-found.svg";
 import { Button } from "@shared/ui";
 import { MAIN_PAGE_ROUTE } from "@shared/consts/routes";
 import styles from "./NotFoundPage.module.scss";

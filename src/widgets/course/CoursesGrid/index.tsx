@@ -10,7 +10,7 @@ export const CoursesGrid: React.FC<Props> = ({ courses }) => {
   return (
     <div className={styles.grid}>
       {courses.map((course) => (
-        <CourseCard course={course} />
+        <CourseCard course={course} key={course._id} />
       ))}
     </div>
   );

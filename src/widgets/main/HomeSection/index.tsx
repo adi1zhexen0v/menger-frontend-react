@@ -1,4 +1,4 @@
-import homeSectionImage from "@shared/assets/img/home-section-image.png";
+import homeSectionImage from "@img/home-section-image.png";
 import { COURSES_PAGE_ROUTE } from "@shared/consts/routes";
 import { Button } from "@shared/ui";
 import styles from "./HomeSection.module.scss";
