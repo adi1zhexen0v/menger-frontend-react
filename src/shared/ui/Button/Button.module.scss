@@ -8,6 +8,8 @@
   border-radius: 10px;
   background: $blue;
   @include text(16px, 16px, 500, $white);
+  @include flex(center, center);
+  gap: 8px;
   transition: 0.3s ease;
 
   &:hover {
@@ -15,4 +17,8 @@
     background: $white;
     color: $blue;
   }
+}
+
+.link {
+  padding: 12px 18px;
 }

@@ -1,0 +1,35 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  display: flex;
+  border: 1px solid rgba($black, 0.1);
+  box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.part {
+  width: 50%;
+}
+
+.image {
+  background: $bg-white;
+  border-right: 1px solid rgba($black, 0.1);
+  @include flex(center, center);
+
+  img {
+    width: 70%;
+  }
+}
+
+.form {
+  padding: 56px 48px;
+  @include flex(center, center);
+
+  &-wrapper {
+    width: 100%;
+  }
+
+  h2 {
+    margin-bottom: 36px;
+  }
+}

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import cn from "classnames";
 import styles from "./Button.module.scss";
 
 interface Props {
@@ -14,7 +15,10 @@ interface Props {
 
 export const Button: React.FC<Props> = ({ isLink = false, title, icon, link, marginTop }) => {
   return isLink ? (
-    <Link to={link!} className={styles.button} style={{ marginTop: `${marginTop}px` }}>
+    <Link
+      to={link!}
+      className={cn(styles.button, { [styles.link]: isLink })}
+      style={{ marginTop: `${marginTop}px` }}>
       {icon && <FontAwesomeIcon icon={icon} />}
       {title}
     </Link>

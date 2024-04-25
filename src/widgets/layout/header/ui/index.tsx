@@ -1,5 +1,12 @@
 import { Link } from "react-router-dom";
-import { COURSES_PAGE_ROUTE, FAQ_PAGE_ROUTE, MAIN_PAGE_ROUTE } from "@shared/consts/routes";
+import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import {
+  COURSES_PAGE_ROUTE,
+  FAQ_PAGE_ROUTE,
+  LOGIN_PAGE_ROUTE,
+  MAIN_PAGE_ROUTE
+} from "@shared/consts/routes";
+import { Button } from "@shared/ui";
 import { NavLink } from "./NavLink";
 import styles from "./Header.module.scss";
 
@@ -16,7 +23,9 @@ export const Header: React.FC = () => {
             <NavLink link={FAQ_PAGE_ROUTE} title="Сұрақ & Жауап" />
           </ul>
         </div>
-        <div className={styles.part}></div>
+        <div className={styles.part}>
+          <Button title="Кіру" icon={faRightToBracket} isLink={true} link={LOGIN_PAGE_ROUTE} />
+        </div>
       </nav>
     </header>
   );

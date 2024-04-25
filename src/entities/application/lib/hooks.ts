@@ -18,5 +18,3 @@ export const useCreateApplication = () => {
     error,
   };
 };
-
-export default useCreateApplication;
