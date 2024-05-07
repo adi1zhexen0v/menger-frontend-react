@@ -1,3 +1,5 @@
+import { ILevel } from "@entities/level";
+
 export interface ICourse {
   _id: string;
   title: string;
@@ -7,6 +9,7 @@ export interface ICourse {
   price: number;
   imageUrl: string;
   isPublic: boolean;
+  levels: ILevel[];
   createdAt: string;
   updatedAt: string;
 }

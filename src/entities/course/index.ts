@@ -1,4 +1,4 @@
 
 export { CourseCard } from "./ui/CourseCard";
-export { type ICourse, getLatestCourses } from "./model/";
-export { useLatestCourses, usePublicCourses } from "./lib/hooks";
+export { type ICourse } from "./model/";
+export { useLatestCourses, usePublicCourses, useCourseBySlug } from "./lib/hooks";

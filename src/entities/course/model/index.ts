@@ -1,2 +1,2 @@
-export { getLatestCourses, getPublicCourses } from "./api";
+export { getLatestCourses, getPublicCourses, getCourseBySlug } from "./api";
 export { type ICourse } from "./types";

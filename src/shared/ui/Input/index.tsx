@@ -40,7 +40,7 @@ export const Input: React.FC<Props> = ({
               className={classNames(styles.input, styles.textarea)}
               {...register(name, validator && validator)}></textarea>
             {errors[name] && errors[name]?.type === "required" && (
-              <span>{errors[name]?.message?.toString()}</span>
+              <Error>{errors[name]?.message?.toString()}</Error>
             )}
           </>
         ) : (

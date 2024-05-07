@@ -8,10 +8,22 @@ import styles from "./ApplicationForm.module.scss";
 export const ApplicationForm: React.FC = () => {
   const { mutate, data, isLoading, isError } = useCreateApplication();
 
-  const { register, handleSubmit, reset } = useForm<ICreateApplicationRequest>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<ICreateApplicationRequest>();
   const onSubmit: SubmitHandler<ICreateApplicationRequest> = (data) => {
     mutate(data);
     reset();
+  };
+
+  const validateDate = (value: string) => {
+    const selectedDate = new Date(value);
+    const now = new Date();
+    now.setSeconds(0, 0);
+    return selectedDate > now || "Сіз өтіп кеткен уақытты таңдай алмайсыз";
   };
 
   return (
@@ -23,6 +35,10 @@ export const ApplicationForm: React.FC = () => {
           icon={faUser}
           name="fullName"
           register={register}
+          validator={{
+            required: { value: true, message: "Аты-жөнің енгізу керек" }
+          }}
+          errors={errors}
         />
         <Input
           title="Ұйымның Аты"
@@ -30,6 +46,10 @@ export const ApplicationForm: React.FC = () => {
           icon={faBuilding}
           name="organizationName"
           register={register}
+          validator={{
+            required: { value: true, message: "Ұйымның атың енгізу керек" }
+          }}
+          errors={errors}
         />
         <Input
           title="E-mail"
@@ -38,24 +58,45 @@ export const ApplicationForm: React.FC = () => {
           type="email"
           name="email"
           register={register}
+          validator={{
+            required: { value: true, message: "Электрондық пошта болуы керек" },
+            pattern: {
+              value: /^\S+@\S+\.\S+$/,
+              message: "Электрондық поштасында `@` символы болу керек"
+            }
+          }}
+          errors={errors}
         />
         <Input
           title="Телефон номері"
-          placeholder="+7 (777) 123-45-67"
+          placeholder="87771234567"
           icon={faPhone}
           type="tel"
           name="phoneNumber"
           register={register}
+          validator={{
+            required: { value: true, message: "Телефон номері болуы керек" },
+            pattern: {
+              value: /^\d+$/,
+              message: "Телефон номері `871234567890` болуы керек"
+            }
+          }}
+          errors={errors}
         />
       </div>
       <div className={styles.list}>
         <Input
           title="Қоңырау уакыты"
-          placeholder="+7 (777) 123-45-67"
+          placeholder=""
           icon={faPhone}
           type="datetime-local"
           name="meetingDate"
           register={register}
+          validator={{
+            required: { value: true, message: "Қоңырау уақыты болу керек" },
+            validate: validateDate
+          }}
+          errors={errors}
         />
         <Input
           title="Өтініш мазмұны"
@@ -64,6 +105,10 @@ export const ApplicationForm: React.FC = () => {
           name="text"
           register={register}
           isTextarea={true}
+          validator={{
+            required: { value: true, message: "Өтініш мазмұны болу керек" }
+          }}
+          errors={errors}
         />
       </div>
       <Button title="Өтініш қалдыру" marginTop={24} />

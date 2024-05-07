@@ -20,3 +20,12 @@ export const getLatestCourses = async (): Promise<ICourse[]> => {
     return [];
   }
 }
+
+export const getCourseBySlug = async (slug: string): Promise<ICourse> => {
+  try {
+    const res = await axiosInstance.get<ICourse>(`/courses/${slug}`);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

@@ -10,7 +10,9 @@ interface Props {
 
 export const PageTitle: React.FC<Props> = ({ children, maxWidth, textAlign }) => {
   return (
-    <h2 className={styles.title} style={{ maxWidth: `${maxWidth}px`, textAlign }}>
+    <h2
+      className={styles.title}
+      style={maxWidth || textAlign ? { maxWidth: `${maxWidth}px`, textAlign } : {}}>
       {children}
     </h2>
   );
