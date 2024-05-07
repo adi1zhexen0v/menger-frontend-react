@@ -6,7 +6,7 @@ import { ApplicationModal } from "../modal";
 import styles from "./ApplicationForm.module.scss";
 
 export const ApplicationForm: React.FC = () => {
-  const { mutate, data, isLoading, error } = useCreateApplication();
+  const { mutate, data, isLoading, isError } = useCreateApplication();
 
   const { register, handleSubmit, reset } = useForm<ICreateApplicationRequest>();
   const onSubmit: SubmitHandler<ICreateApplicationRequest> = (data) => {
@@ -73,7 +73,7 @@ export const ApplicationForm: React.FC = () => {
           <ApplicationModal email={data.email} date={data.meetingDate} />
         </Modal>
       )}
-      {error && <Error>Өтініш жіберу барысында қателік пайда болды</Error>}
+      {isError && <Error marginTop={16}>Өтініш жіберу барысында қателік пайда болды</Error>}
     </form>
   );
 };

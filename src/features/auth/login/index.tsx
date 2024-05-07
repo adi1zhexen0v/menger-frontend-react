@@ -7,9 +7,14 @@ import { Link } from "react-router-dom";
 import { REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
 
 export const LoginForm: React.FC = () => {
-  const { mutate, data, isLoading, error } = useLogin();
+  const { mutate, isLoading, isError } = useLogin();
 
-  const { register, handleSubmit, reset } = useForm<IAuthLoginRequest>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<IAuthLoginRequest>();
   const onSubmit: SubmitHandler<IAuthLoginRequest> = (data) => {
     mutate(data);
     reset();
@@ -23,6 +28,14 @@ export const LoginForm: React.FC = () => {
         icon={faAt}
         name="email"
         register={register}
+        validator={{
+          required: { value: true, message: "Электрондық пошта болуы керек" },
+          pattern: {
+            value: /^\S+@\S+\.\S+$/,
+            message: "Электрондық поштасында `@` символы болу керек"
+          }
+        }}
+        errors={errors}
       />
       <Input
         title="Құпия сөз"
@@ -31,13 +44,21 @@ export const LoginForm: React.FC = () => {
         name="password"
         type="password"
         register={register}
+        validator={{
+          required: { value: true, message: "Құпиясөз болуы керек" },
+          pattern: {
+            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
+            message: "Cіздің құпиясөзіңіз тым жеңіл"
+          }
+        }}
+        errors={errors}
       />
       <div className={styles.link}>
         <Button title="Кіру" />
         <Link to={REGISTER_PAGE_ROUTE}>Сіздің аккаунтыныз бар ма?</Link>
       </div>
       {isLoading && <Loader isFullPage={true} />}
-      {error && (
+      {isError && (
         <Error>
           Кіру кезінде қате пайда болды: электрондық пошта мекенжайы немесе құпия сөз дұрыс емес
         </Error>

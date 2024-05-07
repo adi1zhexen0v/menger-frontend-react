@@ -15,6 +15,7 @@ export const Modal: React.FC<Props> = ({
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
   const closeModal = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.preventDefault();
     const element = e.target as Element;
 
     if (element.className.includes("layout")) {

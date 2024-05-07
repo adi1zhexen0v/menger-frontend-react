@@ -1,6 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IAuthResponse, IUser } from "./types";
-import { PayloadAction } from "@reduxjs/toolkit/react";
 
 interface UserState {
   token: string;

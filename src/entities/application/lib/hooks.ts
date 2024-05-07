@@ -6,7 +6,7 @@ export const useCreateApplication = () => {
     mutate,
     isLoading,
     data,
-    error,
+    isError,
   } = useMutation<IApplication | null, Error, ICreateApplicationRequest>(
     (data) => createNewApplication(data)
   );
@@ -15,6 +15,6 @@ export const useCreateApplication = () => {
     mutate,
     isLoading,
     data,
-    error,
+    isError,
   };
 };
