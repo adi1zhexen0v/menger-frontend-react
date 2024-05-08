@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { faRightToBracket } from "@fortawesome/free-solid-svg-icons";
+import { faRightToBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { useAuth } from "@entities/user";
 import {
   COURSES_PAGE_ROUTE,
   FAQ_PAGE_ROUTE,
@@ -9,8 +10,11 @@ import {
 import { Button } from "@shared/ui";
 import { NavLink } from "./NavLink";
 import styles from "./Header.module.scss";
+import { IoCartSharp } from "react-icons/io5";
 
 export const Header: React.FC = () => {
+  const isAuth = useAuth();
+
   return (
     <header className={styles.header}>
       <nav className={styles.navbar}>
@@ -24,7 +28,17 @@ export const Header: React.FC = () => {
           </ul>
         </div>
         <div className={styles.part}>
-          <Button title="Кіру" icon={faRightToBracket} isLink={true} link={LOGIN_PAGE_ROUTE} />
+          {isAuth ? (
+            <>
+              <div className={styles.cart}>
+                <IoCartSharp />
+                <span>1</span>
+              </div>
+              <Button isLink={true} link="/" title="Менің аккаунтым" icon={faUser} gap={16} />
+            </>
+          ) : (
+            <Button title="Кіру" icon={faRightToBracket} isLink={true} link={LOGIN_PAGE_ROUTE} />
+          )}
         </div>
       </nav>
     </header>

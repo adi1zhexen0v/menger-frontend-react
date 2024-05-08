@@ -1,2 +1,2 @@
-export { userSlice, type IUser, type IAuthResponse, type IAuthRegisterRequest, type IAuthLoginRequest, register, login } from "./model";
-export { useLogin, useRegister } from "./lib/hooks";
+export { userSlice, setActiveUser, deleteActiveUser, type IUser, type IAuthResponse, type IAuthRegisterRequest, type IAuthLoginRequest, register, login, getMe } from "./model";
+export { useLogin, useRegister, useAuth, useAuthUser } from "./lib/hooks";

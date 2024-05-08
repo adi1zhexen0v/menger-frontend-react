@@ -1,0 +1,72 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  width: calc(100%/3);
+}
+
+.image {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(2px);
+  border-radius: 36px;
+}
+
+.overlay {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 36px;
+  background: rgba($bg-blue, .85);
+}
+
+.info {
+  @include flex(flex-start, center);
+  gap: 8px;
+  margin-bottom: 12px;
+
+  h6 {
+    font-family: 'Nunito Sans', sans-serif;
+    @include text(28px, 36px, 900, $blue);
+  }
+}
+
+.block {
+  overflow: hidden;
+  position: relative;
+  background: $bg-blue;
+  padding: 24px 36px;
+  border-radius: 36px;
+  
+  * {
+    z-index: 3;
+  }
+
+  button {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 4;
+  }
+}
+
+.text {
+  position: relative;
+  @include text(20px, 28px, 700, $black);
+}
+
+.price {
+  position: relative;
+  z-index: 5;
+  margin: 8px 0 16px;
+  font-family: 'Nunito Sans', sans-serif;
+  @include text(32px, 40px, 900, $black);
+}

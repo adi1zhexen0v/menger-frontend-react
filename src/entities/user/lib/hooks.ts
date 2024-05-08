@@ -1,13 +1,38 @@
+import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import { RootState } from "@app/store";
 import { useAppDispatch, useAppSelector } from "@shared/lib/hooks";
-import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser, login, register, setActiveUser } from "../model";
+import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser, getMe, login, register, setActiveUser } from "../model";
 
 export const useAuth = () => {
   const user: IUser | null = useAppSelector((state: RootState) => state.user.user);
   const isAuth: boolean = !!user;
   return isAuth;
 }
+
+export const useAuthUser = () => {
+  const [isLoading, setIsLoading] = useState(true);
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const user = await getMe();
+        if (user) {
+          dispatch(setActiveUser({ token: localStorage.getItem("token")!, user }));
+        }
+      } catch (error) {
+        console.error('Error fetching user', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchUser();
+  }, [dispatch]);
+
+  return isLoading;
+};
 
 export const useLogin = () => {
   const dispatch = useAppDispatch();
@@ -16,6 +41,7 @@ export const useLogin = () => {
     {
       onSuccess: (data) => {
         if (data) {
+          localStorage.setItem("token", data.token);
           dispatch(setActiveUser(data));
         }
       }

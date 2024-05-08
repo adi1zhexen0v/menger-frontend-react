@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import cn from "classnames";
+import classNames from "classnames";
 import styles from "./Button.module.scss";
 
 interface Props {
@@ -11,19 +11,23 @@ interface Props {
   link?: string;
   isInverse?: boolean;
   marginTop?: number;
+  gap?: number;
 }
 
-export const Button: React.FC<Props> = ({ isLink = false, title, icon, link, marginTop }) => {
+export const Button: React.FC<Props> = ({ isLink = false, title, icon, link, marginTop, gap }) => {
   return isLink ? (
     <Link
       to={link!}
-      className={cn(styles.button, { [styles.link]: isLink })}
-      style={{ marginTop: `${marginTop}px` }}>
+      className={classNames(styles.button, { [styles.link]: isLink })}
+      style={{ marginTop: `${marginTop}px`, gap: `${gap}px` }}>
       {icon && <FontAwesomeIcon icon={icon} />}
       {title}
     </Link>
   ) : (
-    <button type="submit" className={styles.button} style={{ marginTop: `${marginTop}px` }}>
+    <button
+      type="submit"
+      className={styles.button}
+      style={{ marginTop: `${marginTop}px`, gap: `${gap}px` }}>
       {icon && <FontAwesomeIcon icon={icon} />}
       {title}
     </button>

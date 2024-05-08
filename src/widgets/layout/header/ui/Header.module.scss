@@ -73,3 +73,25 @@
     }
   }
 }
+
+.cart {
+  position: relative;
+  cursor: pointer;
+
+  span {
+    position: absolute;
+    top: -4px;
+    right: -6px;
+    width: 14px;
+    height: 14px;
+    border-radius: 100%;
+    background: $blue;
+    @include flex(center, center);
+    @include text(10px, 10px, 700, $white);
+  }
+
+  svg {
+    font-size: 28px;
+    color: $black;
+  }
+}
