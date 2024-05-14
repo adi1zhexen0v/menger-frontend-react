@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import { RootState } from "@app/store";
 import { useAppDispatch, useAppSelector } from "@shared/lib/hooks";
-import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser, addCourseToCart, removeCourseToCart, getMe, login, register, setActiveUser, updateActiveUser } from "../model";
-import { transferCoursesFromCartToCourses } from "../model/api";
+import { IAuthLoginRequest, IAuthRegisterRequest, IAuthActiveRequest, IAuthResponse, IUser, addCourseToCart, removeCourseToCart, getMe, login, register, setActiveUser, updateActiveUser } from "../model";
+import { activate, transferCoursesFromCartToCourses } from "../model/api";
 
 export const useAuth = () => {
   const user: IUser | null = useAppSelector((state: RootState) => state.user.user);
@@ -53,19 +53,35 @@ export const useLogin = () => {
 }
 
 export const useRegister = () => {
-  const dispatch = useAppDispatch();
-  const { mutate, data, isLoading, isError } = useMutation<IAuthResponse | null, Error, IAuthRegisterRequest>(
+  const { mutate, data, isLoading, isError, error } = useMutation<IAuthResponse | null, Error, IAuthRegisterRequest>(
     (registerData) => register(registerData),
     {
       onSuccess: (data) => {
         if (data) {
-          dispatch(setActiveUser(data));
+          localStorage.setItem("token", data.token);
         }
       }
     }
   );
 
-  return { mutate, data, isLoading, isError };
+  return { mutate, data, isLoading, isError, error };
+}
+
+export const useAccountActivate = () => {
+  const dispatch = useAppDispatch();
+  const { mutate, data, isLoading, isError, error } = useMutation<IUser | null, Error, IAuthActiveRequest>(
+    (activateData) => activate(activateData),
+    {
+      onSuccess: (data) => {
+        if (data) {
+          const token: string = localStorage.getItem("token")!.toString();
+          dispatch(setActiveUser({ user: data, token }));
+        }
+      }
+    }
+  );
+
+  return { mutate, data, isLoading, isError, error };
 }
 
 export const useAddCourseToCart = () => {

@@ -21,7 +21,12 @@ export interface IUser {
 export type IAuthRegisterRequest = Pick<IUser, "firstName" | "lastName" | "email" | "password">;
 export type IAuthLoginRequest = Pick<IUser, "email" | "password">;
 
+export interface IAuthActiveRequest {
+  activationCode: string;
+}
+
 export interface IAuthResponse {
   user: IUser;
   token: string;
 }
+

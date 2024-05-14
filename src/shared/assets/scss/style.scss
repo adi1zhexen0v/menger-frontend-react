@@ -1,4 +1,5 @@
 @import "./lib/reset";
+@import "./lib/variables";
 
 body {
   font-family: "Nunito", sans-serif;
@@ -7,4 +8,8 @@ body {
 .container {
   width: 1200px;
   margin: 186px auto 100px;
+}
+
+.auth-bg {
+  background: $bg-blue;
 }

@@ -69,8 +69,11 @@ export const CartPaymentForm: React.FC = () => {
   };
 
   const onSubmit: SubmitHandler<PaymentHookForm> = () => {
-    mutate();
-    reset();
+    mutate(undefined, {
+      onSuccess: () => {
+        reset();
+      }
+    });
   };
 
   return (

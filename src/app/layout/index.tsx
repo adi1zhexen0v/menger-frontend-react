@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import { Header, Footer } from "@widgets/layout";
 import { useAuthUser } from "@entities/user";
 import { Loader } from "@shared/ui";
+import { changeBackgroundOfBody } from "@shared/utils";
 
 interface Props {
   children?: React.ReactNode;
@@ -14,6 +15,7 @@ export const Layout: React.FC<Props> = ({ children }) => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    changeBackgroundOfBody(location.pathname);
   }, [location.pathname, location.hash]);
 
   if (isLoading) {

@@ -1,2 +1,2 @@
-export { userSlice, setActiveUser, deleteActiveUser, updateActiveUser, type IUser, type IAuthResponse, type IAuthRegisterRequest, type IAuthLoginRequest, register, login, getMe } from "./model";
-export { useLogin, useRegister, useAuth, useAuthUser, useAddCourseToCart, useRemoveCourseToCart, useTransferCoursesFromCartToCourses } from "./lib/hooks";
+export { userSlice, setActiveUser, deleteActiveUser, updateActiveUser, type IUser, type IAuthResponse, type IAuthRegisterRequest, type IAuthLoginRequest, type IAuthActiveRequest, register, login, activate, getMe } from "./model";
+export { useLogin, useRegister, useAccountActivate, useAuth, useAuthUser, useAddCourseToCart, useRemoveCourseToCart, useTransferCoursesFromCartToCourses } from "./lib/hooks";

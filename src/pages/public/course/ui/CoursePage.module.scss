@@ -1,7 +1,0 @@
-@import "../../../../shared/assets/scss/lib/mixins";
-@import "../../../../shared/assets/scss/lib/variables";
-
-.wrapper {
-  @include flex(flex-start, flex-start);
-  gap: 45px;
-}

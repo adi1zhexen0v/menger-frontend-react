@@ -5,4 +5,5 @@ export const FAQ_PAGE_ROUTE: string = '/faq';
 export const SUPPORT_PAGE_ROUTE: string = '/support';
 export const LOGIN_PAGE_ROUTE: string = '/login';
 export const REGISTER_PAGE_ROUTE: string = '/register';
+export const ACCOUNT_ACTIVATE_PAGE_ROUTE: string = '/activate';
 export const CART_PAGE_ROUTE: string = '/cart';

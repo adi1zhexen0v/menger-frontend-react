@@ -15,8 +15,11 @@ export const ApplicationForm: React.FC = () => {
     formState: { errors }
   } = useForm<ICreateApplicationRequest>();
   const onSubmit: SubmitHandler<ICreateApplicationRequest> = (data) => {
-    mutate(data);
-    reset();
+    mutate(data, {
+      onSuccess: () => {
+        reset();
+      }
+    });
   };
 
   const validateDate = (value: string) => {

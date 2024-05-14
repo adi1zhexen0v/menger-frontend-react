@@ -1,5 +1,5 @@
 import { axiosInstance } from "@shared/api";
-import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser } from "./types";
+import { IAuthActiveRequest, IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser } from "./types";
 
 export const register = async (data: IAuthRegisterRequest): Promise<IAuthResponse> => {
   try {
@@ -13,6 +13,18 @@ export const register = async (data: IAuthRegisterRequest): Promise<IAuthRespons
 export const login = async (data: IAuthLoginRequest): Promise<IAuthResponse> => {
   try {
     const res = await axiosInstance.post("/auth/login", data);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const activate = async (data: IAuthActiveRequest): Promise<IUser> => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.post("/auth/activate", data, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
     return res.data;
   } catch (error) {
     throw error;

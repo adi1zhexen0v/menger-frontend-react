@@ -1,10 +1,10 @@
+import { Link } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import { IAuthLoginRequest, useLogin } from "@entities/user";
 import { Button, Error, Input, Loader } from "@shared/ui";
-import styles from "./LoginForm.module.scss";
-import { Link } from "react-router-dom";
 import { REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
+import styles from "./LoginForm.module.scss";
 
 export const LoginForm: React.FC = () => {
   const { mutate, isLoading, isError } = useLogin();
@@ -16,8 +16,11 @@ export const LoginForm: React.FC = () => {
     formState: { errors }
   } = useForm<IAuthLoginRequest>();
   const onSubmit: SubmitHandler<IAuthLoginRequest> = (data) => {
-    mutate(data);
-    reset();
+    mutate(data, {
+      onSuccess: () => {
+        reset();
+      }
+    });
   };
 
   return (
@@ -27,6 +30,7 @@ export const LoginForm: React.FC = () => {
         placeholder="Электрондық поштанызды енгізіңіз"
         icon={faAt}
         name="email"
+        type="email"
         register={register}
         validator={{
           required: { value: true, message: "Электрондық пошта болуы керек" },
@@ -55,7 +59,7 @@ export const LoginForm: React.FC = () => {
       />
       <div className={styles.link}>
         <Button title="Кіру" />
-        <Link to={REGISTER_PAGE_ROUTE}>Сіздің аккаунтыныз бар ма?</Link>
+        <Link to={REGISTER_PAGE_ROUTE}>Тіркелген жоқсыз ба?</Link>
       </div>
       {isLoading && <Loader isFullPage={true} />}
       {isError && (
