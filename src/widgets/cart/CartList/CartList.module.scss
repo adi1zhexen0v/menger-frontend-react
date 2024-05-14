@@ -1,0 +1,101 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.table {
+  width: 100%;
+  margin-top: 40px;
+  border-collapse: collapse;
+
+  th {
+    @include text(16px, 18px, 700, $black);
+  }
+
+  td, th {
+    text-align: left;
+    border-bottom: 1px solid $border;
+    padding: 18px 0;
+  }
+}
+
+.price {
+  @include text(18px, 18px, 700, $black);
+  padding: 18px 24px 18px 0 !important;
+  
+  svg {
+    font-size: 16px;
+  }
+}
+
+.course {
+  @include flex(flex-start, center);
+  gap: 24px;
+  padding: 18px 16px 18px 0 !important;
+
+
+  img {
+    width: 120px;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+  }
+
+  h6 {
+    @include text(18px, 18px, 700, $black);
+  }
+}
+
+.empty {
+  padding-top: 32px;
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 24px;
+
+  img {
+    width: 280px;
+  }
+
+  &-wrapper {
+    @include flex(center, center);
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &-text {
+    @include text(20px, 24px, 700, $black);
+  }
+}
+
+.line {
+  margin-top: 20px;
+  @include flex();
+}
+
+.link {
+  @include flex(flex-end, center);
+  @include text(20px, 20px, 700, $blue);
+  gap: 12px;
+  transition: 0.2s ease;
+  
+  svg {
+    height: 20px;
+  }
+
+  &:hover {
+    color: rgba($blue, 0.75);
+  }
+}
+
+.total {
+  @include text(20px, 28px, 500, $black);
+  @include flex(flex-end, center);
+  gap: 8px;
+
+  span {
+    font-weight: 700;
+    font-size: 26px;
+
+    svg {
+      font-size: 24px;
+      margin-left: 4px;
+    }
+  }
+}

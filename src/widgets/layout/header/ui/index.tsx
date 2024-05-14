@@ -5,6 +5,7 @@ import { RootState } from "@app/store";
 import { LogoutButton } from "@features/auth";
 import { useAuth } from "@entities/user";
 import {
+  CART_PAGE_ROUTE,
   COURSES_PAGE_ROUTE,
   FAQ_PAGE_ROUTE,
   LOGIN_PAGE_ROUTE,
@@ -34,10 +35,10 @@ export const Header: React.FC = () => {
         <div className={styles.part}>
           {isAuth ? (
             <>
-              <div className={styles.cart}>
+              <Link to={CART_PAGE_ROUTE} className={styles.cart}>
                 <IoCartSharp />
                 <span>{user?.cart.length}</span>
-              </div>
+              </Link>
               <LogoutButton />
               <Button isLink={true} link="/" title="Менің аккаунтым" icon={faUser} gap={16} />
             </>

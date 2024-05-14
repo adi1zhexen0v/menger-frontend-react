@@ -4,3 +4,7 @@
 .error {
   @include text(16px, 16px, 600, $red-text);
 }
+
+.small {
+  @include text(12px, 12px, 600, $red-text);
+}

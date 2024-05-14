@@ -1,10 +1,9 @@
+import classNames from "classnames";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTengeSign } from "@fortawesome/free-solid-svg-icons";
-import classNames from "classnames";
-import { ICourse } from "@entities/course";
-import { Button } from "@shared/ui";
-import styles from "./CourseBoard.module.scss";
 import { CartButton } from "@features/cart";
+import { ICourse } from "@entities/course";
+import styles from "./CourseBoard.module.scss";
 
 interface Props {
   course: ICourse;

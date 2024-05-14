@@ -1,10 +1,18 @@
-import { HTMLInputTypeAttribute } from "react";
+import { ChangeEvent, HTMLInputTypeAttribute } from "react";
 import { FieldErrors, RegisterOptions, UseFormRegister } from "react-hook-form";
 import classNames from "classnames";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Error } from "../Error";
 import styles from "./Input.module.scss";
+
+interface InputAttributes {
+  maxLength?: number;
+  minLength?: number;
+  maxValue?: number;
+  minValue?: number;
+  step?: number;
+}
 
 interface Props {
   isTextarea?: boolean;
@@ -16,6 +24,10 @@ interface Props {
   name: string;
   validator?: RegisterOptions<any, string>;
   errors: FieldErrors<any>;
+  isSmallError?: boolean;
+  onChangeFunc?: (...args: any[]) => void;
+  args?: any[];
+  inputAttributes?: InputAttributes;
 }
 
 export const Input: React.FC<Props> = ({
@@ -27,7 +39,11 @@ export const Input: React.FC<Props> = ({
   register,
   name,
   validator,
-  errors
+  errors,
+  isSmallError = false,
+  onChangeFunc,
+  args,
+  inputAttributes
 }) => {
   return (
     <div>
@@ -38,7 +54,8 @@ export const Input: React.FC<Props> = ({
             <textarea
               placeholder={placeholder}
               className={classNames(styles.input, styles.textarea)}
-              {...register(name, validator && validator)}></textarea>
+              {...register(name, validator && validator)}
+              {...inputAttributes}></textarea>
             {errors[name] && errors[name]?.type === "required" && (
               <Error>{errors[name]?.message?.toString()}</Error>
             )}
@@ -50,8 +67,12 @@ export const Input: React.FC<Props> = ({
               className={styles.input}
               placeholder={placeholder}
               {...register(name, validator && validator)}
+              {...inputAttributes}
+              onChange={(event: ChangeEvent<HTMLInputElement>) => onChangeFunc?.(event, ...args!)}
             />
-            {errors[name] && <Error>{errors[name]?.message?.toString()}</Error>}
+            {errors[name] && (
+              <Error isSmallError={isSmallError}>{errors[name]?.message?.toString()}</Error>
+            )}
           </>
         )}
         <div className={styles.icon}>

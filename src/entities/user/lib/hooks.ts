@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import { RootState } from "@app/store";
 import { useAppDispatch, useAppSelector } from "@shared/lib/hooks";
-import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser, addCourseToCart, getMe, login, register, setActiveUser, updateActiveUser } from "../model";
+import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser, addCourseToCart, removeCourseToCart, getMe, login, register, setActiveUser, updateActiveUser } from "../model";
+import { transferCoursesFromCartToCourses } from "../model/api";
 
 export const useAuth = () => {
   const user: IUser | null = useAppSelector((state: RootState) => state.user.user);
@@ -76,3 +77,24 @@ export const useAddCourseToCart = () => {
   });
   return { mutate, isLoading, isError };
 };
+
+export const useRemoveCourseToCart = () => {
+  const dispatch = useAppDispatch();
+  const { mutate, isError } = useMutation<IUser, Error, string>((courseId: string) => removeCourseToCart(courseId), {
+    onSuccess: (data) => {
+      dispatch(updateActiveUser(data));
+    }
+  });
+  return { mutate, isError };
+}
+
+export const useTransferCoursesFromCartToCourses = () => {
+  const dispatch = useAppDispatch();
+  const { mutate, isLoading, isError } = useMutation<IUser, Error>(() => transferCoursesFromCartToCourses(), {
+    onSuccess: (data) => {
+      console.log(data);
+      dispatch(updateActiveUser(data));
+    }
+  });
+  return { mutate, isLoading, isError };
+}

@@ -46,3 +46,28 @@ export const addCourseToCart = async (courseId: string): Promise<IUser> => {
     throw error;
   }
 }
+
+export const removeCourseToCart = async (courseId: string): Promise<IUser> => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.delete<IUser>(`/users/cart/${courseId}`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const transferCoursesFromCartToCourses = async (): Promise<IUser> => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.put<IUser>("/users/cart", {}, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    console.log(res);
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

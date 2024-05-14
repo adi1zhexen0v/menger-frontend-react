@@ -1,0 +1,26 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid $border;
+  padding-top: 24px;
+  margin-top: 16px;
+}
+
+.grid {
+  @include flex(flex-start, space-between);
+  gap: 32px;
+}
+
+.date {
+  display: flex;
+  gap: 12px;
+}

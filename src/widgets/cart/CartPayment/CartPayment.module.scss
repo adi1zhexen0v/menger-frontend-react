@@ -1,0 +1,12 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  background: $bg-blue;
+  padding: 24px;
+  border-radius: 18px;
+}
+
+.title {
+  @include text(24px, 24px, 700, $black);
+}

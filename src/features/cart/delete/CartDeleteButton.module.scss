@@ -1,0 +1,13 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.button {
+  font-size: 16px;
+  color: $black;
+  transition: 0.3s ease;
+
+  &:hover {
+    color: $gray;
+    cursor: pointer;
+  }
+}
