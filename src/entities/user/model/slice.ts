@@ -19,6 +19,9 @@ export const userSlice = createSlice({
       state.token = action.payload.token;
       state.user = action.payload.user;
     },
+    updateActiveUser(state, action: PayloadAction<IUser>) {
+      state.user = action.payload;
+    },
     deleteActiveUser(state, _) {
       state.token = "";
       state.user = null;
@@ -26,4 +29,4 @@ export const userSlice = createSlice({
   }
 });
 
-export const { setActiveUser, deleteActiveUser } = userSlice.actions;
+export const { setActiveUser, deleteActiveUser, updateActiveUser } = userSlice.actions;

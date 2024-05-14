@@ -1,5 +1,8 @@
 import { Link } from "react-router-dom";
 import { faRightToBracket, faUser } from "@fortawesome/free-solid-svg-icons";
+import { IoCartSharp } from "react-icons/io5";
+import { RootState } from "@app/store";
+import { LogoutButton } from "@features/auth";
 import { useAuth } from "@entities/user";
 import {
   COURSES_PAGE_ROUTE,
@@ -8,12 +11,13 @@ import {
   MAIN_PAGE_ROUTE
 } from "@shared/consts/routes";
 import { Button } from "@shared/ui";
+import { useAppSelector } from "@shared/lib/hooks";
 import { NavLink } from "./NavLink";
 import styles from "./Header.module.scss";
-import { IoCartSharp } from "react-icons/io5";
 
 export const Header: React.FC = () => {
   const isAuth = useAuth();
+  const user = useAppSelector((state: RootState) => state.user.user);
 
   return (
     <header className={styles.header}>
@@ -32,8 +36,9 @@ export const Header: React.FC = () => {
             <>
               <div className={styles.cart}>
                 <IoCartSharp />
-                <span>1</span>
+                <span>{user?.cart.length}</span>
               </div>
+              <LogoutButton />
               <Button isLink={true} link="/" title="Менің аккаунтым" icon={faUser} gap={16} />
             </>
           ) : (

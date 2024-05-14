@@ -34,3 +34,15 @@ export const getMe = async (): Promise<IUser | null> => {
     throw error;
   }
 }
+
+export const addCourseToCart = async (courseId: string): Promise<IUser> => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.patch<IUser>(`/users/cart/${courseId}`, {}, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

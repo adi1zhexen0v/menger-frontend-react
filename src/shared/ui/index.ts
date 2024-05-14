@@ -5,3 +5,4 @@ export { PageText } from "./PageText";
 export { Input } from "./Input";
 export { Modal } from "./Modal";
 export { Error } from "./Error";
+export { Toast } from "./Toast";

@@ -1,3 +1,4 @@
+import { ICourse } from "@entities/course";
 import { UserRole } from "@shared/consts/enums";
 
 export interface IUser {
@@ -10,6 +11,8 @@ export interface IUser {
   points: number;
   diamonds: number;
   isActivated: boolean;
+  cart: ICourse[];
+  courses: ICourse[];
   createdAt: string;
   updatedAt: string;
   __v: number;

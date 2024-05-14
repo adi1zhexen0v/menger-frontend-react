@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
       <div className={styles.container}>
         <div className={styles.header}>
           <div>
-            <div className={styles.logo}>Xplore</div>
+            <div className={styles.logo}>Men'ger</div>
             <p className={styles.text}>
               Халықаралық жетістік тілін
               <br />

@@ -16,6 +16,16 @@
     background: $white;
     color: $blue;
   }
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+  }
 }
 
 .link {

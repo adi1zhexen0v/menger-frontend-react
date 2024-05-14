@@ -2,5 +2,5 @@
 @import "../../assets/scss/lib/variables";
 
 .error {
-  @include text(16px, 16px, 600, $red);
+  @include text(16px, 16px, 600, $red-text);
 }

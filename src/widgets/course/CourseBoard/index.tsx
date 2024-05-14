@@ -4,6 +4,7 @@ import classNames from "classnames";
 import { ICourse } from "@entities/course";
 import { Button } from "@shared/ui";
 import styles from "./CourseBoard.module.scss";
+import { CartButton } from "@features/cart";
 
 interface Props {
   course: ICourse;
@@ -26,7 +27,7 @@ export const CourseBoard: React.FC<Props> = ({ course }) => {
         <h6>127</h6>
         <p className={styles.text}>Оқушы</p>
       </div>
-      <Button title="Курсты сатып алу" marginTop={24} />
+      <CartButton courseId={course._id} />
     </div>
   );
 };

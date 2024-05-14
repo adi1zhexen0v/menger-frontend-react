@@ -1,0 +1,22 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  @include flex(flex-start, center);
+  width: 800px;
+  gap: 80px;
+
+  div {
+    &:first-child {
+      width: 320px;
+    }
+
+    &:last-child {
+      flex: 1;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
+}

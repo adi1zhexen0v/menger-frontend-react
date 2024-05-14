@@ -15,8 +15,8 @@ export const CourseInfo: React.FC<Props> = ({ course }) => {
       <PageText>{course!.description}</PageText>
       <h4 className={styles.title}>Курсты аяқтағаннан кейін:</h4>
       <ul>
-        {course?.benefits.map((benefit) => (
-          <li>
+        {course?.benefits.map((benefit, index) => (
+          <li key={index}>
             <PageText>- {benefit}</PageText>
           </li>
         ))}
@@ -24,7 +24,7 @@ export const CourseInfo: React.FC<Props> = ({ course }) => {
       <h4 className={styles.title}>Курс бағдарламасы:</h4>
       <div className={styles.levels}>
         {sortLevelsByOrder(course!.levels).map((level) => (
-          <LevelItem level={level} />
+          <LevelItem level={level} key={level._id} />
         ))}
       </div>
     </div>

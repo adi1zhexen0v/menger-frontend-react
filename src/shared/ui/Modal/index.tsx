@@ -5,12 +5,14 @@ interface Props {
   children: React.ReactNode;
   paddingHorizontal?: number;
   paddingVertical?: number;
+  func?: () => void;
 }
 
 export const Modal: React.FC<Props> = ({
   children,
   paddingHorizontal = 48,
-  paddingVertical = 40
+  paddingVertical = 40,
+  func
 }) => {
   const [isOpen, setIsOpen] = useState<boolean>(true);
 
@@ -20,6 +22,7 @@ export const Modal: React.FC<Props> = ({
 
     if (element.className.includes("layout")) {
       setIsOpen(false);
+      func?.();
     }
   };
 

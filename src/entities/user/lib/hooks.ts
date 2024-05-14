@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useMutation } from "react-query";
 import { RootState } from "@app/store";
 import { useAppDispatch, useAppSelector } from "@shared/lib/hooks";
-import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser, getMe, login, register, setActiveUser } from "../model";
+import { IAuthLoginRequest, IAuthRegisterRequest, IAuthResponse, IUser, addCourseToCart, getMe, login, register, setActiveUser, updateActiveUser } from "../model";
 
 export const useAuth = () => {
   const user: IUser | null = useAppSelector((state: RootState) => state.user.user);
@@ -66,3 +66,13 @@ export const useRegister = () => {
 
   return { mutate, data, isLoading, isError };
 }
+
+export const useAddCourseToCart = () => {
+  const dispatch = useAppDispatch();
+  const { mutate, isLoading, isError } = useMutation<IUser, Error, string>((courseId: string) => addCourseToCart(courseId), {
+    onSuccess: (data) => {
+      dispatch(updateActiveUser(data));
+    }
+  });
+  return { mutate, isLoading, isError };
+};
