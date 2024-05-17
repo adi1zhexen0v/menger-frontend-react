@@ -1,2 +1,34 @@
 @import "../../../shared/assets/scss/lib/mixins";
 @import "../../../shared/assets/scss/lib/variables";
+
+.link {
+  position: relative;
+  width: 100%;
+  padding: 16px 0 16px 48px;
+  @include flex(flex-start, center);
+  gap: 48px;
+  transition: 0.3s ease;
+
+  svg {
+    font-size: 24px;
+    color: $gray;
+    transition: 0.3s ease;
+  }
+
+  h6 {
+    @include text(18px, 18px, 700, $gray);
+    transition: 0.3s ease;
+  }
+
+  &:hover {
+    cursor: pointer;
+
+    svg {
+      color: $red-text;
+    }
+
+    h6 {
+      color: $red-text;
+    }
+  }
+}

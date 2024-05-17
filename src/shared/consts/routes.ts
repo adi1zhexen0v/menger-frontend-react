@@ -7,3 +7,6 @@ export const LOGIN_PAGE_ROUTE: string = '/login';
 export const REGISTER_PAGE_ROUTE: string = '/register';
 export const ACCOUNT_ACTIVATE_PAGE_ROUTE: string = '/activate';
 export const CART_PAGE_ROUTE: string = '/cart';
+export const DASHBOARD_MAIN_PAGE_ROUTE: string = '/dashboard';
+export const DASHBOARD_PROFILE_PAGE_ROUTE: string = '/dashboard/profile';
+export const DASHBOARD_APPLICATIONS_PAGE_ROUTE: string = '/dashboard/applications';

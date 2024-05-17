@@ -1,5 +1,5 @@
-import { useMutation } from 'react-query';
-import { IApplication, ICreateApplicationRequest, createNewApplication } from '..';
+import { useMutation, useQuery } from 'react-query';
+import { IApplication, ICreateApplicationRequest, createNewApplication, getAllApplications } from '..';
 
 export const useCreateApplication = () => {
   const {
@@ -7,7 +7,7 @@ export const useCreateApplication = () => {
     isLoading,
     data,
     isError,
-  } = useMutation<IApplication | null, Error, ICreateApplicationRequest>(
+  } = useMutation<IApplication, Error, ICreateApplicationRequest>(
     (data) => createNewApplication(data)
   );
 
@@ -18,3 +18,7 @@ export const useCreateApplication = () => {
     isError,
   };
 };
+
+export const useGetAllApplications = () => {
+  return useQuery("courses", getAllApplications);
+}

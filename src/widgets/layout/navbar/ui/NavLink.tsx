@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import classNames from "classnames";
-import styles from "./Header.module.scss";
+import styles from "./Navbar.module.scss";
 
 interface Props {
   link: string;

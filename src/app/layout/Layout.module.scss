@@ -1,0 +1,36 @@
+@import "../../shared/assets/scss/lib/variables";
+@import "../../shared/assets/scss/lib/mixins";
+
+.container {
+  width: 1200px;
+  margin: 186px auto 100px;
+}
+
+.layout {
+  background: $bg-blue;
+  height: 100vh;
+  overflow: hidden;
+  @include flex(flex-start, center);
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  padding: 48px 64px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wrapper {
+  overflow-y: scroll;
+  flex: 1;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.content {
+  overflow-y: hidden;
+  height: 100%;
+}

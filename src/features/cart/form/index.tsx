@@ -1,4 +1,4 @@
-import { ChangeEvent } from "react";
+import { ChangeEvent, useState } from "react";
 import { SubmitHandler, UseFormSetValue, useForm } from "react-hook-form";
 import classNames from "classnames";
 import { faCalendar, faCreditCard, faKey, faUser } from "@fortawesome/free-solid-svg-icons";
@@ -18,6 +18,7 @@ interface PaymentHookForm {
 }
 
 export const CartPaymentForm: React.FC = () => {
+  const [toastIsOpen, setToastIsOpen] = useState<boolean>(false);
   const cart: ICourse[] = useAppSelector((state: RootState) => state.user.user?.cart!);
   const { mutate, isLoading, isError } = useTransferCoursesFromCartToCourses();
 
@@ -71,6 +72,7 @@ export const CartPaymentForm: React.FC = () => {
   const onSubmit: SubmitHandler<PaymentHookForm> = () => {
     mutate(undefined, {
       onSuccess: () => {
+        setToastIsOpen(true);
         reset();
       }
     });
@@ -159,6 +161,9 @@ export const CartPaymentForm: React.FC = () => {
         <Button title="Төлемді рәсімдеу" />
       </form>
       {isLoading && <Loader isFullPage={true} />}
+      {toastIsOpen && (
+        <Toast title="Төлем сәтті өтті" text="Себеттегі курстар сәтті сатып алынды" />
+      )}
       {isError && (
         <Toast
           isFail={true}

@@ -2,6 +2,7 @@
 @import "../../../shared/assets/scss/lib/variables";
 
 .wrapper {
+  position: sticky;
   width: calc(100%/3);
 }
 

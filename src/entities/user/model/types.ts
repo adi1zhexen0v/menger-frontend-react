@@ -11,6 +11,7 @@ export interface IUser {
   points: number;
   diamonds: number;
   isActivated: boolean;
+  profilePictureUrl?: string;
   cart: ICourse[];
   courses: ICourse[];
   createdAt: string;

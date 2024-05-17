@@ -10,6 +10,7 @@ interface Props {
   icon?: IconDefinition;
   isLink?: boolean;
   link?: string;
+  isNewBlank?: boolean;
   marginTop?: number;
   gap?: number;
   isLoading?: boolean;
@@ -19,6 +20,7 @@ interface Props {
 
 export const Button: React.FC<Props> = ({
   isLink = false,
+  isNewBlank = false,
   title,
   icon,
   link,
@@ -31,6 +33,7 @@ export const Button: React.FC<Props> = ({
   return isLink ? (
     <Link
       to={link!}
+      target={isNewBlank ? "_blank" : ""}
       className={classNames(styles.button, { [styles.link]: isLink })}
       style={{ marginTop: `${marginTop}px`, gap: `${gap}px` }}>
       {icon && <FontAwesomeIcon icon={icon} />}

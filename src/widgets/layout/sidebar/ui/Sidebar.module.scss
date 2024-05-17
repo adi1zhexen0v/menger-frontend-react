@@ -1,0 +1,91 @@
+@import "../../../../shared/assets/scss/lib/mixins";
+@import "../../../../shared/assets/scss/lib/variables";
+
+.sidebar {
+  width: 360px;
+  height: 100%;
+  background: $white;
+  border-right: 1px solid $border;
+  @include flex();
+  flex-direction: column;
+}
+
+.top {
+  width: 100%;
+  position: relative;
+}
+
+.bottom {
+  width: 100%;
+  padding-bottom: 48px;
+}
+
+.logo {
+  margin-bottom: 120px;
+  padding: 64px 0 0 48px;
+  @include flex(flex-start, center);
+  gap: 24px;
+
+  img {
+    width: 48px;
+    aspect-ratio: 1/1;
+  }
+
+  h1 {
+    font-family: "Acme", sans-serif;
+    @include text(36px, 48px, 400, $blue);
+  }
+}
+
+.link {
+  position: relative;
+  width: 100%;
+  padding: 16px 0 16px 48px;
+  @include flex(flex-start, center);
+  gap: 48px;
+  transition: 0.3s ease;
+
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+
+  svg {
+    font-size: 24px;
+    color: $gray;
+  }
+
+  h6 {
+    @include text(18px, 18px, 700, $gray);
+  }
+
+  &-active {
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 0;
+      transform: translateY(-50%);
+      width: 4px;
+      height: 32px;
+      border-radius: 10px;
+      background: $blue;
+      transition: 0.3s ease;
+    }
+
+    svg {
+      color: $blue
+    }
+
+    h6 {
+      color: $black;
+    }
+
+    &:hover {
+      background: $white !important;
+    }
+  }
+
+  &:hover {
+    background: rgba($bg-blue, 0.6);
+  }
+}

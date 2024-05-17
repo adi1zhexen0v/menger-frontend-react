@@ -12,7 +12,7 @@ export const useAuth = () => {
 }
 
 export const useAuthUser = () => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -32,7 +32,8 @@ export const useAuthUser = () => {
     fetchUser();
   }, [dispatch]);
 
-  return isLoading;
+  const activeUser: IUser = useAppSelector((state: RootState) => state.user.user)!;
+  return { isLoading, activeUser };
 };
 
 export const useLogin = () => {

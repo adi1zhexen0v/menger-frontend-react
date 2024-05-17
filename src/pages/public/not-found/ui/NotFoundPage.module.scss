@@ -1,3 +1,5 @@
+@import "../../../../shared/assets/scss/lib/variables";
+
 .container {
   width: 100%;
   display: flex;
@@ -5,6 +7,17 @@
   align-items: center;
   flex-direction: column;
   gap: 48px;
+}
+
+.dashboard {
+  height: 100%;
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 48px;
+
+  .image {
+    width: 35%;
+  }
 }
 
 .wrapper {

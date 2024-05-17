@@ -1,12 +1,13 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { faAt, faLock } from "@fortawesome/free-solid-svg-icons";
 import { IAuthLoginRequest, useLogin } from "@entities/user";
 import { Button, Error, Input, Loader } from "@shared/ui";
-import { REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
+import { DASHBOARD_MAIN_PAGE_ROUTE, REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
 import styles from "./LoginForm.module.scss";
 
 export const LoginForm: React.FC = () => {
+  const navigate = useNavigate();
   const { mutate, isLoading, isError } = useLogin();
 
   const {
@@ -19,6 +20,7 @@ export const LoginForm: React.FC = () => {
     mutate(data, {
       onSuccess: () => {
         reset();
+        navigate(DASHBOARD_MAIN_PAGE_ROUTE);
       }
     });
   };
