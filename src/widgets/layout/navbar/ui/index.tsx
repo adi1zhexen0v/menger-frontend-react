@@ -15,6 +15,7 @@ import { Button } from "@shared/ui";
 import { useAppSelector } from "@shared/lib/hooks";
 import { NavLink } from "./NavLink";
 import styles from "./Navbar.module.scss";
+import { UserRole } from "@shared/consts/enums";
 
 export const Navbar: React.FC = () => {
   const isAuth = useAuth();
@@ -35,10 +36,12 @@ export const Navbar: React.FC = () => {
         <div className={styles.part}>
           {isAuth ? (
             <>
-              <Link to={CART_PAGE_ROUTE} className={styles.cart}>
-                <IoCartSharp />
-                <span>{user?.cart.length}</span>
-              </Link>
+              {user?.role === UserRole.STUDENT && (
+                <Link to={CART_PAGE_ROUTE} className={styles.cart}>
+                  <IoCartSharp />
+                  <span>{user?.cart.length}</span>
+                </Link>
+              )}
               <Button
                 isLink={true}
                 link={DASHBOARD_MAIN_PAGE_ROUTE}

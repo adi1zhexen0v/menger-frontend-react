@@ -1,0 +1,1 @@
+export { DashboardOrganizationsPage } from "./ui";

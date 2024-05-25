@@ -31,7 +31,7 @@
     aspect-ratio: 1/1;
   }
 
-  h1 {
+  a {
     font-family: "Acme", sans-serif;
     @include text(36px, 48px, 400, $blue);
   }

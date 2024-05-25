@@ -11,5 +11,6 @@
 }     
 
 .dashboard {
+  height: 36px; 
   @include text(32px, 36px, 800, $black);
 }

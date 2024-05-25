@@ -1,10 +1,10 @@
 import { ApplicationList } from "@widgets/application";
-import { useGetAllApplications } from "@entities/application";
+import { useApplications } from "@entities/application";
 import { Loader, PageTitle } from "@shared/ui";
 import styles from "./ApplicationPage.module.scss";
 
 export const DashboardApplicationsPage: React.FC = () => {
-  const { data, isLoading } = useGetAllApplications();
+  const { data, isLoading } = useApplications();
 
   return (
     <section className={styles.container}>

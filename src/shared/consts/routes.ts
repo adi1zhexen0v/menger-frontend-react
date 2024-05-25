@@ -10,3 +10,5 @@ export const CART_PAGE_ROUTE: string = '/cart';
 export const DASHBOARD_MAIN_PAGE_ROUTE: string = '/dashboard';
 export const DASHBOARD_PROFILE_PAGE_ROUTE: string = '/dashboard/profile';
 export const DASHBOARD_APPLICATIONS_PAGE_ROUTE: string = '/dashboard/applications';
+export const DASHBOARD_ORGANIZATIONS_PAGE_ROUTE: string = '/dashboard/organizaions';
+export const DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE: string = '/dashboard/organizaions/:slug';

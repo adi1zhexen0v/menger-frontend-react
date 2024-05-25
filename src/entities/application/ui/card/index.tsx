@@ -19,18 +19,10 @@ interface IApplicationCardButton {
 }
 
 const applicationCardButtons: IApplicationCardButton[] = [
-  {
-    icon: faUser
-  },
-  {
-    icon: faEnvelope
-  },
-  {
-    icon: faVideo
-  },
-  {
-    icon: faCheck
-  }
+  { icon: faUser },
+  { icon: faEnvelope },
+  { icon: faVideo },
+  { icon: faCheck }
 ];
 
 interface Props {

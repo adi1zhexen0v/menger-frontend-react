@@ -1,0 +1,50 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.card {
+  position: relative;
+  padding: 16px 24px;
+  border: 1px solid $border;
+  border-radius: 16px;
+  @include flex(flex-start, center);
+  gap: 16px;
+}
+
+.image {
+  width: 128px;
+  height: 128px;
+  object-fit: cover;
+  border: 1px solid $border;
+}
+
+.title {
+  @include text(24px, 28px, 700, $black);
+  margin-bottom: 8px;
+}
+
+.link {
+  padding: 8px 12px;
+  background: $blue;
+  border: 1px solid $blue;
+  border-radius: 8px;
+  @include flex(flex-start, center);
+  gap: 8px;
+  transition: 0.3s ease;
+
+  svg {
+    color: $white;
+    font-size: 16px;
+  }
+
+  p {
+    @include text(14px, 14px, 600, $white);
+  }
+
+  &:hover {
+    background: $white;
+
+    p, svg {
+      color: $blue;
+    }
+  }
+}

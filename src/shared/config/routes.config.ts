@@ -5,8 +5,10 @@ import { RegisterPage, LoginPage, AccountActivatePage } from "@pages/public/auth
 import { MainPage } from "@pages/public/main";
 import { NotFoundPage } from "@pages/public/not-found";
 import { DashboardMainPage } from "@pages/private/main";
-import { ACCOUNT_ACTIVATE_PAGE_ROUTE, CART_PAGE_ROUTE, COURSES_PAGE_ROUTE, COURSE_PAGE_ROUTE, DASHBOARD_APPLICATIONS_PAGE_ROUTE, DASHBOARD_MAIN_PAGE_ROUTE, FAQ_PAGE_ROUTE, LOGIN_PAGE_ROUTE, MAIN_PAGE_ROUTE, REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
+import { ACCOUNT_ACTIVATE_PAGE_ROUTE, CART_PAGE_ROUTE, COURSES_PAGE_ROUTE, COURSE_PAGE_ROUTE, DASHBOARD_APPLICATIONS_PAGE_ROUTE, DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE, DASHBOARD_MAIN_PAGE_ROUTE, DASHBOARD_ORGANIZATIONS_PAGE_ROUTE, FAQ_PAGE_ROUTE, LOGIN_PAGE_ROUTE, MAIN_PAGE_ROUTE, REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
 import { DashboardApplicationsPage } from "@pages/private/applications";
+import { DashboardOrganizationsPage } from "@pages/private/organizations/list";
+import { DashboardEditOrganizationPage } from "@pages/private/organizations/single";
 
 interface IAppRoute {
   path: string,
@@ -56,6 +58,16 @@ export const routes: IAppRoute[] = [
   {
     path: DASHBOARD_APPLICATIONS_PAGE_ROUTE,
     element: DashboardApplicationsPage,
+    authOnly: true
+  },
+  {
+    path: DASHBOARD_ORGANIZATIONS_PAGE_ROUTE,
+    element: DashboardOrganizationsPage,
+    authOnly: true
+  },
+  {
+    path: DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE,
+    element: DashboardEditOrganizationPage,
     authOnly: true
   },
   {

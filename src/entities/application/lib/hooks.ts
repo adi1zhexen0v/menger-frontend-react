@@ -20,8 +20,8 @@ export const useCreateApplication = () => {
   };
 };
 
-export const useGetAllApplications = () => {
-  return useQuery("courses", getAllApplications);
+export const useApplications = () => {
+  return useQuery("applications", getAllApplications);
 }
 
 export const useAcceptApplication = () => {
