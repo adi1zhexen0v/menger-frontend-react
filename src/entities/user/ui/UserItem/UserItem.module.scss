@@ -1,0 +1,39 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.wrapper {
+  @include flex();
+  padding: 8px 26px;
+  border: 1px solid $border;
+  border-radius: 100px;
+}
+
+.info {
+  @include flex(flex-start, center);
+  gap: 12px;
+}
+
+.image {
+  width: 40px;
+  aspect-ratio: 1/1;
+  border: 0.5px solid $border;
+  border-radius: 100%;
+}
+
+.text {
+  @include text(16px, 16px, 700, $black);
+}
+
+.points {
+  @include flex(flex-end, center);
+  gap: 8px;
+
+  img {
+    width: 20px;
+    aspect-ratio: 1/1;
+  }
+
+  p {
+    @include text(16px, 16px, 700, $black);
+  }
+}

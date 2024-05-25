@@ -1,0 +1,27 @@
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
+
+.title {
+  h4 {
+    @include text(22px, 22px, 700, $black);
+  }
+  padding-bottom: 12px;
+  border-bottom: 1px solid $border;
+  margin-bottom: 16px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.manager {
+  margin-bottom: 40px;
+}
+
+.message {
+  @include text(16px, 16px, 600, $gray);
+  margin-bottom: 32px;
+}

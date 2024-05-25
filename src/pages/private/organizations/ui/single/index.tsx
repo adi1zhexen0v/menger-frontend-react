@@ -3,6 +3,7 @@ import { EditOrganizationForm } from "@features/organization";
 import { useOrganizationBySlug } from "@entities/organization";
 import { Loader, PageTitle } from "@shared/ui";
 import styles from "./DashboardEditOrganizationPage.module.scss";
+import { UserListOfOrganization } from "@widgets/organization";
 
 export const DashboardEditOrganizationPage: React.FC = () => {
   const { slug } = useParams();
@@ -16,7 +17,7 @@ export const DashboardEditOrganizationPage: React.FC = () => {
           <Loader />
         ) : (
           <div className={styles.grid}>
-            <div></div>
+            <UserListOfOrganization organization={data!} />
             <EditOrganizationForm organization={data!} />
           </div>
         )}

@@ -1,0 +1,30 @@
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.line {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.input {
+  width: 50%;
+}
+
+.button {
+  display: flex;
+  height: 60px;
+}
+
+.toggle {
+  @include flex();
+  @include text(18px, 20px, 700, $blue);
+  margin-bottom: 16px; 
+  cursor: pointer;
+}

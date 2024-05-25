@@ -18,3 +18,5 @@ export interface IOrganization {
 export type IUpdateOrganizationRequest = Pick<IOrganization, "name" | "slug" | "description"> & {
   file: File;
 };
+
+export type IAddUserToOrganizationRequest = Pick<IUser, "firstName" | "lastName" | "email">;

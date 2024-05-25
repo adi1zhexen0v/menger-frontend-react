@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import classNames from "classnames";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import classNames from "classnames";
-import styles from "./Button.module.scss";
 import { Loader } from "../Loader";
+import styles from "./Button.module.scss";
 
 interface Props {
   title: string;

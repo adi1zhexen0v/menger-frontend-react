@@ -1,1 +1,1 @@
-export { type IOrganization, type IUpdateOrganizationRequest } from "./types";
+export { type IOrganization, type IUpdateOrganizationRequest, type IAddUserToOrganizationRequest } from "./types";
