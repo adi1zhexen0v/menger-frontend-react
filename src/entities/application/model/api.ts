@@ -21,3 +21,27 @@ export const getAllApplications = async (): Promise<IApplication[]> => {
     throw error;
   }
 }
+
+export const acceptApplication = async (id: string): Promise<IApplication> => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.patch<IApplication>(`/applications/accept/${id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const denyApplication = async (id: string): Promise<IApplication> => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.patch<IApplication>(`/applications/deny/${id}`, {}, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

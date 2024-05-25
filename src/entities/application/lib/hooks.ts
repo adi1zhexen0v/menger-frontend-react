@@ -1,5 +1,6 @@
 import { useMutation, useQuery } from 'react-query';
 import { IApplication, ICreateApplicationRequest, createNewApplication, getAllApplications } from '..';
+import { acceptApplication, denyApplication } from '../model/api';
 
 export const useCreateApplication = () => {
   const {
@@ -21,4 +22,36 @@ export const useCreateApplication = () => {
 
 export const useGetAllApplications = () => {
   return useQuery("courses", getAllApplications);
+}
+
+export const useAcceptApplication = () => {
+  const {
+    mutate,
+    isLoading,
+    isError,
+  } = useMutation<IApplication, Error, string>(
+    (applicationId: string) => acceptApplication(applicationId)
+  );
+
+  return {
+    mutate,
+    isLoading,
+    isError,
+  }
+}
+
+export const useDenyApplication = () => {
+  const {
+    mutate,
+    isLoading,
+    isError,
+  } = useMutation<IApplication, Error, string>(
+    (applicationId: string) => denyApplication(applicationId)
+  );
+
+  return {
+    mutate,
+    isLoading,
+    isError,
+  }
 }

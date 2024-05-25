@@ -3,6 +3,7 @@
 .grid {
   overflow-y: auto;
   padding-top: 24px;
+  padding-right: 12px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 40px;

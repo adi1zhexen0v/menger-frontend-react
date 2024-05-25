@@ -6,11 +6,12 @@ import {
   faCheck,
   faEnvelope,
   faUser,
-  faVideo
+  faVideo,
+  faX
 } from "@fortawesome/free-solid-svg-icons";
-import { IApplication } from "@entities/application/model";
+import { IApplication, useAcceptApplication, useDenyApplication } from "@entities/application/";
 import { formatDate } from "@shared/utils";
-import { Button } from "@shared/ui";
+import { Button, Loader, Toast } from "@shared/ui";
 import styles from "./ApplicationCard.module.scss";
 
 interface IApplicationCardButton {
@@ -37,10 +38,37 @@ interface Props {
 }
 
 export const ApplicationCard: React.FC<Props> = ({ application }) => {
+  const [isHidden, setIsHidden] = useState<boolean>(false);
   const [activeIndex, setActiveIndex] = useState<number>(0);
+  const {
+    mutate: acceptMutate,
+    isError: acceptIsError,
+    isLoading: acceptIsLoading
+  } = useAcceptApplication();
+  const {
+    mutate: denyMutate,
+    isError: denyIsError,
+    isLoading: denyIsLoading
+  } = useDenyApplication();
+
+  const handleClickAcceptApplication = async () => {
+    acceptMutate(application._id, {
+      onSuccess: () => {
+        setIsHidden(true);
+      }
+    });
+  };
+
+  const handleClickDenyApplication = async () => {
+    denyMutate(application._id, {
+      onSuccess: () => {
+        setIsHidden(true);
+      }
+    });
+  };
 
   return (
-    <div className={styles.card}>
+    <div className={classNames(styles.card, { [styles.hidden]: isHidden })}>
       <div className={styles.header}>
         {applicationCardButtons.map((item, index) => (
           <div
@@ -107,7 +135,26 @@ export const ApplicationCard: React.FC<Props> = ({ application }) => {
           <div className={styles.heading}>
             <h2>Өтініш жауабы</h2>
           </div>
+          <h6 className={styles.title}>Өтінішті қабылдаймыз ба?</h6>
+          <div className={styles.buttons}>
+            <div
+              className={classNames(styles.button, styles.red)}
+              onClick={handleClickDenyApplication}>
+              <FontAwesomeIcon icon={faX} />
+            </div>
+            <div className={styles.button} onClick={handleClickAcceptApplication}>
+              <FontAwesomeIcon icon={faCheck} />
+            </div>
+          </div>
         </div>
+      )}
+      {(acceptIsLoading || denyIsLoading) && <Loader isFullPage={true} />}
+      {(acceptIsError || denyIsError) && (
+        <Toast
+          isFail={true}
+          title="Қате пайда болды"
+          text="Өтінішті қабылдау кезінде қате пайда болды"
+        />
       )}
     </div>
   );

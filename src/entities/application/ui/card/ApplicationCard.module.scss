@@ -1,6 +1,10 @@
 @import "../../../../shared/assets/scss/lib/variables";
 @import "../../../../shared/assets/scss/lib/mixins";
 
+.hidden {
+  display: none;
+}
+
 .card {
   position: relative;
   padding: 48px 24px 18px 24px;
@@ -74,5 +78,37 @@
         color: $blue;
       }
     }
+  }
+}
+
+.buttons {
+  @include flex(flex-start, center);
+  gap: 8px;
+}
+
+.button {
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  background: $blue;
+  @include flex(center, center);
+  transition: 0.3s ease;
+
+  svg {
+    font-size: 16px;
+    color: $white;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: $darken-blue;
+  }
+}
+
+.red {
+  background: $red-text;
+
+  &:hover {
+    background: rgba($red-text, 0.8);
   }
 }
