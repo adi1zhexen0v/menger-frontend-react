@@ -19,7 +19,12 @@
 
 .title {
   @include text(24px, 28px, 700, $black);
-  margin-bottom: 8px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .link {
@@ -27,7 +32,7 @@
   background: $blue;
   border: 1px solid $blue;
   border-radius: 8px;
-  @include flex(flex-start, center);
+  @include flex(center, center);
   gap: 8px;
   transition: 0.3s ease;
 
@@ -47,4 +52,8 @@
       color: $blue;
     }
   }
+}
+
+.description {
+  @include text(16px, 20px, 600, $gray);
 }

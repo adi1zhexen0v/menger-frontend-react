@@ -14,6 +14,20 @@
 .textarea {
   height: 100px;
   resize: none;
+
+  &::-webkit-scrollbar{
+    width: 12px;
+  }
+  
+  &::-webkit-scrollbar-track{
+    background: $white;
+  }
+  
+  &::-webkit-scrollbar-thumb{
+    background: $blue;
+    border-radius: 10px;
+    border: 3px solid $white;
+  }
 }
 
 .input {

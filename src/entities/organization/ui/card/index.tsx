@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { TbEdit } from "react-icons/tb";
 import { IOrganization } from "@entities/organization";
 import { DASHBOARD_ORGANIZATIONS_PAGE_ROUTE } from "@shared/consts/routes";
+import { truncateStringByLastWord } from "@shared/utils";
 import defaultOrganizationPicture from "@img/default-organization.png";
 import styles from "./OrganizationCard.module.scss";
 
@@ -17,9 +18,13 @@ export const OrganizationCard: React.FC<Props> = ({ organization }) => {
         alt={organization.name}
         className={styles.image}
       />
-      <div>
+      <div className={styles.content}>
         <h4 className={styles.title}>{organization.name}</h4>
-        {organization.description && <p>{organization.description}</p>}
+        {organization.description && (
+          <p className={styles.description}>
+            {truncateStringByLastWord(organization.description, 70)}
+          </p>
+        )}
         <Link
           to={DASHBOARD_ORGANIZATIONS_PAGE_ROUTE + "/" + organization.slug}
           className={styles.link}>

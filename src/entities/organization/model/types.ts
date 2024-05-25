@@ -14,3 +14,7 @@ export interface IOrganization {
   updatedAt: string;
   __v: number;
 }
+
+export type IUpdateOrganizationRequest = Pick<IOrganization, "name" | "slug" | "description"> & {
+  file: File;
+};

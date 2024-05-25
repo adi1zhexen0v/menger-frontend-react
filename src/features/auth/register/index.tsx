@@ -8,7 +8,7 @@ import styles from "./RegisterForm.module.scss";
 
 export const RegisterForm: React.FC = () => {
   const navigate = useNavigate();
-  const { mutate, isLoading, isError, error } = useRegister();
+  const { mutate, isLoading, isError } = useRegister();
   const {
     register,
     handleSubmit,
@@ -23,8 +23,6 @@ export const RegisterForm: React.FC = () => {
       }
     });
   };
-
-  console.log(error);
 
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
