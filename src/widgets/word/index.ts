@@ -1,0 +1,1 @@
+export { WordsGrid } from "./WordsGrid";

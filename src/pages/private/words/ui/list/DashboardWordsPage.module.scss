@@ -1,0 +1,24 @@
+@import "../../../../../shared/assets/scss/lib/variables";
+@import "../../../../../shared/assets/scss/lib/mixins";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 48px 64px;
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 48px;
+}
+
+.header {
+  @include flex();
+}

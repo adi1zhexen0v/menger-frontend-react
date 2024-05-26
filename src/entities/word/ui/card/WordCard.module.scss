@@ -1,0 +1,58 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.card {
+  border: 1px solid $border;
+  border-radius: 16px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.image {
+  position: relative;
+  
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover
+  }
+}
+
+.audio {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  @include flex(center, center);
+  background: $bg-blue;
+  transition: 0.2s ease;
+
+  svg {
+    color: $blue;
+    font-size: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: rgba($bg-blue, 0.8);
+  }
+}
+
+.title {
+  @include text(14px, 16px, 600, $gray);
+  margin-bottom: 4px;
+}
+
+.text {
+  @include text(18px, 22px, 700, $black);
+}
