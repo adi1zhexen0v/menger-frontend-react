@@ -7,3 +7,7 @@ export interface IWord {
   audioUrl: string;
   __v: number;
 }
+
+export type ICreateWord = Pick<IWord, "kaz" | "eng" | "transcription"> & {
+  file: FileList;
+}

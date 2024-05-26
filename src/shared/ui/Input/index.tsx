@@ -1,5 +1,6 @@
 import { ChangeEvent, HTMLInputTypeAttribute } from "react";
 import { FieldErrors, RegisterOptions, UseFormRegister } from "react-hook-form";
+import { IconType } from "react-icons/lib";
 import classNames from "classnames";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -18,7 +19,8 @@ interface Props {
   isTextarea?: boolean;
   title: string;
   placeholder: string;
-  icon: IconDefinition;
+  icon?: IconDefinition;
+  ReactIcon?: IconType;
   type?: HTMLInputTypeAttribute;
   register: UseFormRegister<any>;
   name: string;
@@ -35,6 +37,7 @@ export const Input: React.FC<Props> = ({
   title,
   placeholder,
   icon,
+  ReactIcon,
   type = "text",
   register,
   name,
@@ -76,7 +79,8 @@ export const Input: React.FC<Props> = ({
           </>
         )}
         <div className={styles.icon}>
-          <FontAwesomeIcon icon={icon} />
+          {icon && <FontAwesomeIcon icon={icon} />}
+          {ReactIcon && <ReactIcon />}
         </div>
       </div>
     </div>

@@ -1,22 +1,14 @@
-@import "../../assets/scss/lib/mixins";
-@import "../../assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
 
-.title {
-  @include text(14px, 18px, 700, $black);
-  margin-bottom: 8px;
-}
-
-.block {
-  width: 100%;
-  position: relative;
-}
-
-.textarea {
-  height: 100px;
-  resize: none;
+.form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar{
-    width: 12px;
+    width: 15px;
   }
   
   &::-webkit-scrollbar-track{
@@ -30,16 +22,22 @@
   }
 }
 
+.title {
+  @include text(14px, 18px, 700, $black);
+  margin-bottom: 8px;
+}
+
+.block {
+  width: 100%;
+  position: relative;
+}
+
 .input {
   width: 100%;
   padding: 18px 0 18px 52px;
   border: 1px solid $border;
   border-radius: 16px;
   outline: none;
-
-  &[type="datetime-local"] {
-    padding: 18px 32px 18px 52px;
-  }
 
   &::placeholder {
     @include text(14px, 18px, 300, $border);
@@ -56,12 +54,23 @@
   top: 0;
   left: 0;
   width: 52px;
-  height: 59px;
+  height: 60px;
   @include flex(center, center);
 
   svg {
-    height: 24px;
     font-size: 24px;
     color: $border;
+  }
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.part {
+  input {
+    margin-bottom: 10px;
   }
 }

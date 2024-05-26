@@ -1,10 +1,10 @@
+import { useState } from "react";
 import classNames from "classnames";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import correctMarkImg from "@img/correctmark.png";
 import failMarkImg from "@img/failmark.png";
 import styles from "./Toast.module.scss";
-import { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faX } from "@fortawesome/free-solid-svg-icons";
 
 interface Props {
   isFail?: boolean;

@@ -7,8 +7,8 @@ import { NotFoundPage } from "@pages/public/not-found";
 import { DashboardMainPage } from "@pages/private/main";
 import { DashboardApplicationsPage } from "@pages/private/applications";
 import { DashboardOrganizationsPage, DashboardEditOrganizationPage } from "@pages/private/organizations";
-import { DashboardWordsPage } from "@pages/private/words";
-import { ACCOUNT_ACTIVATE_PAGE_ROUTE, CART_PAGE_ROUTE, COURSES_PAGE_ROUTE, COURSE_PAGE_ROUTE, DASHBOARD_APPLICATIONS_PAGE_ROUTE, DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE, DASHBOARD_MAIN_PAGE_ROUTE, DASHBOARD_ORGANIZATIONS_PAGE_ROUTE, DASHBOARD_WORDS_PAGE_ROUTE, FAQ_PAGE_ROUTE, LOGIN_PAGE_ROUTE, MAIN_PAGE_ROUTE, REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
+import { DashboardWordsPage, DashboardAddWordPage } from "@pages/private/words";
+import { ACCOUNT_ACTIVATE_PAGE_ROUTE, CART_PAGE_ROUTE, COURSES_PAGE_ROUTE, COURSE_PAGE_ROUTE, DASHBOARD_ADD_WORD_PAGE_ROUTE, DASHBOARD_APPLICATIONS_PAGE_ROUTE, DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE, DASHBOARD_MAIN_PAGE_ROUTE, DASHBOARD_ORGANIZATIONS_PAGE_ROUTE, DASHBOARD_WORDS_PAGE_ROUTE, FAQ_PAGE_ROUTE, LOGIN_PAGE_ROUTE, MAIN_PAGE_ROUTE, REGISTER_PAGE_ROUTE } from "@shared/consts/routes";
 
 interface IAppRoute {
   path: string,
@@ -73,6 +73,11 @@ export const routes: IAppRoute[] = [
   {
     path: DASHBOARD_WORDS_PAGE_ROUTE,
     element: DashboardWordsPage,
+    authOnly: true
+  },
+  {
+    path: DASHBOARD_ADD_WORD_PAGE_ROUTE,
+    element: DashboardAddWordPage,
     authOnly: true
   },
   {
