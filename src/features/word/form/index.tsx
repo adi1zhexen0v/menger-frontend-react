@@ -1,3 +1,4 @@
+import { ChangeEvent, useState } from "react";
 import { useForm } from "react-hook-form";
 import { IoText } from "react-icons/io5";
 import { RiEnglishInput } from "react-icons/ri";
@@ -6,29 +7,25 @@ import { ICreateWord } from "@entities/word";
 import { TranslateToEnglishButton, TranslateToKazakhButton } from "@entities/translate";
 import { Input } from "@shared/ui";
 import styles from "./CreateWordForm.module.scss";
-import { useState, useEffect } from "react";
+import { GetTranscriptionOfWordButton } from "@entities/gpt";
 
 export const CreateWordForm: React.FC = () => {
+  const [kazValue, setKazValue] = useState<string>("");
+  const [engValue, setEngValue] = useState<string>("");
+
   const {
     register,
     formState: { errors },
-    setValue,
-    watch
+    setValue
   } = useForm<ICreateWord>();
 
-  const [kazValue, setKazValue] = useState("");
-  const [engValue, setEngValue] = useState("");
+  const handleChangeKazValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setKazValue(e.target.value);
+  };
 
-  const watchKaz = watch("kaz");
-  const watchEng = watch("eng");
-
-  useEffect(() => {
-    setKazValue(watchKaz);
-  }, [watch]);
-
-  useEffect(() => {
-    setEngValue(watchEng);
-  }, [watch]);
+  const handleChangeEngValue = (e: ChangeEvent<HTMLInputElement>) => {
+    setEngValue(e.target.value);
+  };
 
   return (
     <form className={styles.form}>
@@ -41,6 +38,8 @@ export const CreateWordForm: React.FC = () => {
             placeholder="Сөздің қазақша аудармасың еңгізіңіз"
             title="Сөздің қазақша аудармасы"
             ReactIcon={IoText}
+            onChangeFunc={handleChangeKazValue}
+            args={[]}
           />
           <TranslateToKazakhButton
             title="Сөзді қазақшаға аудару"
@@ -57,6 +56,8 @@ export const CreateWordForm: React.FC = () => {
             placeholder="Сөздің ағылшынша аудармасың еңгізіңіз"
             title="Сөздің ағылшынша аудармасы"
             ReactIcon={RiEnglishInput}
+            onChangeFunc={handleChangeEngValue}
+            args={[]}
           />
           <TranslateToEnglishButton
             title="Сөзді ағылшыншаға аудару"
@@ -65,14 +66,22 @@ export const CreateWordForm: React.FC = () => {
             setValue={setValue}
           />
         </div>
-        <Input
-          register={register}
-          name="transcription"
-          errors={errors}
-          placeholder="Сөздің транскрипциясың еңгізіңіз"
-          title="Сөздің транскрипциясы"
-          ReactIcon={CgTranscript}
-        />
+        <div className={styles.part}>
+          <Input
+            register={register}
+            name="transcription"
+            errors={errors}
+            placeholder="Сөздің транскрипциясың еңгізіңіз"
+            title="Сөздің транскрипциясы"
+            ReactIcon={CgTranscript}
+          />
+          <GetTranscriptionOfWordButton
+            title="Сөздің транскрипциясың ЖИ арқылы алу"
+            name="transcription"
+            value={engValue}
+            setValue={setValue}
+          />
+        </div>
       </div>
     </form>
   );

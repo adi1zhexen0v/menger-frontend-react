@@ -12,10 +12,16 @@ interface Props {
 }
 
 export const TranslateToKazakhButton: React.FC<Props> = ({ title, name, value, setValue }) => {
+  const [valueIsEmpty, setValueIsEmpty] = useState<boolean>(false);
   const { mutate, isLoading, isError } = useTranslateToKazakh();
 
   const translate = () => {
     console.log(value);
+    setValueIsEmpty(false);
+    if (value.length === 0) {
+      setValueIsEmpty(true);
+    }
+
     mutate(value, {
       onSuccess: (res) => {
         setValue(name, res.translatedText);
@@ -32,13 +38,13 @@ export const TranslateToKazakhButton: React.FC<Props> = ({ title, name, value, s
           text="Қазақшаға аудару кезінде қате пайда болды"
         />
       )}
-      {/* {valueIsEmpty ? (
+      {valueIsEmpty ? (
         <Toast
           isFail={true}
           title="Ағылшынша аудармасың толтырыңыз"
           text="Қазақшаға аудару үшін қазақша аудармасың толтырыңыз"
         />
-      ) : null} */}
+      ) : null}
       <Button title={title} ReactIcon={SiGoogletranslate} isLoading={isLoading} func={translate} />
     </>
   );

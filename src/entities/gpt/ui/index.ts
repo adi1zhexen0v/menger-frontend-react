@@ -1,0 +1,1 @@
+export { GetTranscriptionOfWordButton } from "./transcription-button";
