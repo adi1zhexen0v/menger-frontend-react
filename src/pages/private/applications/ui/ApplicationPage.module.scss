@@ -18,3 +18,26 @@
   border: 1px solid $border;
   border-radius: 48px;
 }
+
+.list {
+  @include flex(flex-start, center);
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.button {
+  padding: 12px 20px;
+  border: 1px solid $border;
+  border-radius: 4px;
+  @include text(16px, 18px, 600, $blue);
+  transition: 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: $bg-blue;
+  }
+}
+
+.active {
+  background: $bg-blue;
+}

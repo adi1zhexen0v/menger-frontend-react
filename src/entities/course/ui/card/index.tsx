@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
 import { faTengeSign } from "@fortawesome/free-solid-svg-icons";
 import { RootState } from "@app/store";
 import {
