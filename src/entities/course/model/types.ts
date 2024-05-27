@@ -13,3 +13,5 @@ export interface ICourse {
   createdAt: string;
   updatedAt: string;
 }
+
+export type ICreateCourseRequest = Pick<ICourse, "title" | "slug" | "description" | "price">;

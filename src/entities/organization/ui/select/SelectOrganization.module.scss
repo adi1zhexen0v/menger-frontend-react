@@ -1,0 +1,54 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.select {
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  padding: 12px 18px;
+  border: 1px solid $border;
+  border-radius: 16px;
+  outline: none;
+  @include flex(flex-start, center);
+  gap: 16px;
+}
+
+.arrow {
+  position: absolute;
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+  color: $border;
+  font-size: 24px;
+}
+
+.option {
+  padding: 8px 18px;
+  @include flex(flex-start, center);
+  gap: 16px;
+  border-radius: 16px;
+  transition: 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: rgba($border, 0.3);
+  }
+}
+
+.image {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+}
+
+.text {
+  @include text(16px, 16px, 700, $black);
+}
+
+.list {
+  margin-top: 8px;
+  border: 1px solid $border;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+}

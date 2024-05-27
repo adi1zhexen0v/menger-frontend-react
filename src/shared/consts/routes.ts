@@ -14,3 +14,6 @@ export const DASHBOARD_ORGANIZATIONS_PAGE_ROUTE: string = "/dashboard/organizaio
 export const DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE: string = "/dashboard/organizaions/:slug";
 export const DASHBOARD_WORDS_PAGE_ROUTE: string = "/dashboard/words";
 export const DASHBOARD_ADD_WORD_PAGE_ROUTE: string = "/dashboard/words/create";
+export const DASHBOARD_COURSES_PAGE_ROUTE: string = "/dashboard/courses";
+export const DASHBOARD_CREATE_COURSE_PAGE_ROUTE: string = "/dashboard/courses/create";
+export const DASHBOARD_EDIT_COURSE_PAGE_ROUTE: string = "/dashboard/courses/edit/:slug";

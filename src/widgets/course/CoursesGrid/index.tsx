@@ -4,11 +4,14 @@ import styles from "./CoursesGrid.module.scss";
 
 interface Props {
   courses: ICourse[];
+  gridTemplateColumns?: number;
 }
 
-export const CoursesGrid: React.FC<Props> = ({ courses }) => {
+export const CoursesGrid: React.FC<Props> = ({ courses, gridTemplateColumns = 2 }) => {
   return (
-    <div className={styles.grid}>
+    <div
+      className={styles.grid}
+      style={{ gridTemplateColumns: `repeat(${gridTemplateColumns} ,1fr)` }}>
       {courses.map((course) => (
         <CourseCard course={course} key={course._id} />
       ))}

@@ -61,6 +61,7 @@ export const ApplicationCard: React.FC<Props> = ({ application }) => {
 
   return (
     <div className={classNames(styles.card, { [styles.hidden]: isHidden })}>
+      <p className={styles.date}>{formatDate(application.createdAt)}</p>
       <div className={styles.header}>
         {applicationCardButtons.map((item, index) => (
           <div
