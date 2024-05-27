@@ -1,0 +1,38 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.button {
+  position: absolute;
+  bottom: 12px;
+  right: 18px;
+  width: 36px;
+  aspect-ratio: 1/1;
+  border: 1px solid rgba($blue, 0.6);
+  border-radius: 4px;
+  background: $bg-blue;
+  @include flex(center, center);
+  transition: 0.5s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: $blue;
+
+    svg {
+      color: $white;
+    }
+  }
+
+  svg {
+    color: $blue;
+    font-size: 20px;
+  }
+
+  span {
+    border: 3px solid $blue;
+    border-bottom-color: transparent;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+}

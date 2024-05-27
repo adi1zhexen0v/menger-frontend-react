@@ -6,3 +6,4 @@ export { Input } from "./Input";
 export { Modal } from "./Modal";
 export { Error } from "./Error";
 export { Toast } from "./Toast";
+export { ManualInput } from "./ManualInput";

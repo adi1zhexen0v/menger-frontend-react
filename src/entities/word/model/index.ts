@@ -1,2 +1,2 @@
-export { type IWord, type ICreateWord } from "./types";
+export { type IWord, type ICreateWordRequest } from "./types";
 export { getAllWords } from "./api";

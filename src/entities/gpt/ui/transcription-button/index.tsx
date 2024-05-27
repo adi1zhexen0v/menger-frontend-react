@@ -1,29 +1,30 @@
-import { useState } from "react";
-import { UseFormSetValue } from "react-hook-form";
+import { useState, MouseEvent } from "react";
 import { AiOutlineOpenAI } from "react-icons/ai";
-import { Button, Toast } from "@shared/ui";
-import { useTranscriptionOfWord } from "@entities/gpt/lib/hooks";
+import classNames from "classnames";
+import { Toast, Loader } from "@shared/ui";
+import { useTranscriptionOfWord } from "@entities/gpt";
+import styles from "./GetTranscriptionOfWordButton.module.scss";
 
 interface Props {
-  name: string;
-  title: string;
   value: string;
-  setValue: UseFormSetValue<any>;
+  setValue: (value: string) => void;
 }
 
-export const GetTranscriptionOfWordButton: React.FC<Props> = ({ title, name, value, setValue }) => {
+export const GetTranscriptionOfWordButton: React.FC<Props> = ({ value, setValue }) => {
   const [valueIsEmpty, setValueIsEmpty] = useState<boolean>(false);
   const { mutate, isLoading, isError } = useTranscriptionOfWord();
 
-  const getTranscription = () => {
+  const getTranscription = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
     setValueIsEmpty(false);
     if (value.length === 0) {
       setValueIsEmpty(true);
     }
-    console.log(value);
+
     mutate(value, {
       onSuccess: (res) => {
-        setValue(name, res.transcription);
+        setValue(res.transcription);
       }
     });
   };
@@ -44,12 +45,11 @@ export const GetTranscriptionOfWordButton: React.FC<Props> = ({ title, name, val
           text="Сөздің транскрипциясын алу үшін қазақша аудармасың толтырыңыз"
         />
       )}
-      <Button
-        title={title}
-        ReactIcon={AiOutlineOpenAI}
-        isLoading={isLoading}
-        func={getTranscription}
-      />
+      <button
+        onClick={getTranscription}
+        className={classNames(styles.button, { [styles.disabled]: isLoading })}>
+        {isLoading ? <Loader isSmall={true} /> : <AiOutlineOpenAI />}
+      </button>
     </>
   );
 };

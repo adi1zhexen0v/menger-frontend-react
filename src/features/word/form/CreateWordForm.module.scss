@@ -70,7 +70,41 @@
 }
 
 .part {
-  input {
-    margin-bottom: 10px;
+  position: relative;
+}
+
+
+.file {
+  display: none;
+}
+
+.uploader {
+  padding: 8px 24px;
+  margin-bottom: 16px;
+  border: 1px solid $blue;
+  border-radius: 10px;
+  background: $blue;
+  @include flex(center, center);
+  gap: 16px;
+  @include text(16px, 16px, 500, $white);
+  transition: 0.3s ease;
+
+  svg {
+    font-size: 24px;
   }
+
+  &:hover {
+    cursor: pointer;
+    background: $white;
+    color: $blue;
+  }
+}
+.preview {
+  max-width: 360px;
+}
+
+.voices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px;
 }

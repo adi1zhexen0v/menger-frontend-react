@@ -1,0 +1,100 @@
+@import "../../assets/scss/lib/mixins";
+@import "../../assets/scss/lib/variables";
+
+.title {
+  @include text(14px, 18px, 700, $black);
+  margin-bottom: 8px;
+}
+
+.block {
+  width: 100%;
+  position: relative;
+}
+
+.textarea {
+  height: 100px;
+  resize: none;
+
+  &::-webkit-scrollbar{
+    width: 12px;
+  }
+  
+  &::-webkit-scrollbar-track{
+    background: $white;
+  }
+  
+  &::-webkit-scrollbar-thumb{
+    background: $blue;
+    border-radius: 10px;
+    border: 3px solid $white;
+  }
+}
+
+.input {
+  width: 100%;
+  padding: 18px 0 18px 52px;
+  border: 1px solid $border;
+  border-radius: 16px;
+  outline: none;
+
+  &[type="datetime-local"] {
+    padding: 18px 32px 18px 52px;
+  }
+
+  &::placeholder {
+    @include text(14px, 18px, 300, $border);
+  }
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+.icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 52px;
+  height: 59px;
+  @include flex(center, center);
+
+  svg {
+    height: 24px;
+    font-size: 24px;
+    color: $border;
+  }
+}
+
+.header {
+  @include flex(flex-start, center);
+  gap: 12px;
+}
+
+.question {
+  position: relative;
+
+  svg {
+    margin-top: -4px;
+    font-size: 18px;
+    color: $gray;
+
+    &:hover {
+      cursor: help;
+    }
+  }
+}
+
+.message {
+  position: absolute;
+  display: flex;
+  z-index: 12;
+  width: 240px;
+  top: 0;
+  left: 24px;
+  padding: 6px 12px;
+  border: 1px solid $border;
+  background: $white;
+  box-shadow: 2px 2px 4px 0px rgba(35, 35, 35, 0.15);
+  @include text(12px, 14px, 600, $gray);
+}

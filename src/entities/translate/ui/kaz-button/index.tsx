@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { UseFormSetValue } from "react-hook-form";
+import { useState, MouseEvent } from "react";
 import { SiGoogletranslate } from "react-icons/si";
+import classNames from "classnames";
 import { useTranslateToKazakh } from "@entities/translate";
-import { Button, Toast } from "@shared/ui";
+import { Loader, Toast } from "@shared/ui";
+import styles from "./TranslateToKazakhButton.module.scss";
 
 interface Props {
-  name: string;
-  title: string;
   value: string;
-  setValue: UseFormSetValue<any>;
+  setValue: (value: string) => void;
 }
 
-export const TranslateToKazakhButton: React.FC<Props> = ({ title, name, value, setValue }) => {
+export const TranslateToKazakhButton: React.FC<Props> = ({ value, setValue }) => {
   const [valueIsEmpty, setValueIsEmpty] = useState<boolean>(false);
   const { mutate, isLoading, isError } = useTranslateToKazakh();
 
-  const translate = () => {
-    console.log(value);
+  const translate = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
     setValueIsEmpty(false);
     if (value.length === 0) {
       setValueIsEmpty(true);
@@ -24,7 +24,7 @@ export const TranslateToKazakhButton: React.FC<Props> = ({ title, name, value, s
 
     mutate(value, {
       onSuccess: (res) => {
-        setValue(name, res.translatedText);
+        setValue(res.translatedText);
       }
     });
   };
@@ -45,7 +45,11 @@ export const TranslateToKazakhButton: React.FC<Props> = ({ title, name, value, s
           text="Қазақшаға аудару үшін қазақша аудармасың толтырыңыз"
         />
       ) : null}
-      <Button title={title} ReactIcon={SiGoogletranslate} isLoading={isLoading} func={translate} />
+      <button
+        onClick={translate}
+        className={classNames(styles.button, { [styles.disabled]: isLoading })}>
+        {isLoading ? <Loader isSmall={true} /> : <SiGoogletranslate />}
+      </button>
     </>
   );
 };

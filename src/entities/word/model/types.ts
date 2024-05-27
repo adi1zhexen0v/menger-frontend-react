@@ -1,3 +1,5 @@
+import { VoiceType } from "@shared/consts/enums";
+
 export interface IWord {
   _id: string;
   kaz: string;
@@ -8,6 +10,7 @@ export interface IWord {
   __v: number;
 }
 
-export type ICreateWord = Pick<IWord, "kaz" | "eng" | "transcription"> & {
-  file: FileList;
+export type ICreateWordRequest = Pick<IWord, "kaz" | "eng" | "transcription"> & {
+  file: File;
+  voice: VoiceType;
 }

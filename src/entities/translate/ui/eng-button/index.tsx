@@ -1,29 +1,29 @@
-import { useState } from "react";
-import { UseFormSetValue } from "react-hook-form";
+import { useState, MouseEvent } from "react";
 import { SiGoogletranslate } from "react-icons/si";
+import classNames from "classnames";
 import { useTranslateToEnglish } from "@entities/translate";
-import { Button, Toast } from "@shared/ui";
+import { Toast, Loader } from "@shared/ui";
+import styles from "./TranslateToEnglishButton.module.scss";
 
 interface Props {
-  name: string;
-  title: string;
   value: string;
-  setValue: UseFormSetValue<any>;
+  setValue: (value: string) => void;
 }
 
-export const TranslateToEnglishButton: React.FC<Props> = ({ title, name, value, setValue }) => {
+export const TranslateToEnglishButton: React.FC<Props> = ({ value, setValue }) => {
   const [valueIsEmpty, setValueIsEmpty] = useState<boolean>(false);
   const { mutate, isLoading, isError } = useTranslateToEnglish();
 
-  const translate = () => {
+  const translate = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
     setValueIsEmpty(false);
     if (value.length === 0) {
       setValueIsEmpty(true);
     }
-    console.log(value);
     mutate(value, {
       onSuccess: (res) => {
-        setValue(name, res.translatedText);
+        setValue(res.translatedText);
       }
     });
   };
@@ -44,7 +44,11 @@ export const TranslateToEnglishButton: React.FC<Props> = ({ title, name, value, 
           text="Ағылшыншаға аудару үшін қазақша аудармасың толтырыңыз"
         />
       ) : null}
-      <Button title={title} ReactIcon={SiGoogletranslate} isLoading={isLoading} func={translate} />
+      <button
+        onClick={translate}
+        className={classNames(styles.button, { [styles.disabled]: isLoading })}>
+        {isLoading ? <Loader isSmall={true} /> : <SiGoogletranslate />}
+      </button>
     </>
   );
 };

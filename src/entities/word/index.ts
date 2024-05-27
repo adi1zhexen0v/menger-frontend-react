@@ -1,3 +1,3 @@
-export { type IWord, type ICreateWord } from "./model";
-export { useWords } from "./lib/hooks";
+export { type IWord, type ICreateWordRequest } from "./model";
+export { useWords, useCreateNewWord } from "./lib/hooks";
 export { WordCard } from "./ui";

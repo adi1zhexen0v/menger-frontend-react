@@ -15,6 +15,7 @@ export const WordCard: React.FC<Props> = ({ word }) => {
       audioRef.current.play();
     }
   };
+  
   return (
     <div className={styles.card}>
       <div className={styles.image}>

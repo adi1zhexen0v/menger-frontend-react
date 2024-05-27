@@ -13,3 +13,18 @@ export const getAllWords = async () => {
     throw error;
   }
 }
+
+export const createNewWord = async (data: FormData) => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.post<IWord>("/word/", data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        'Content-Type': 'multipart/form-data'
+      }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

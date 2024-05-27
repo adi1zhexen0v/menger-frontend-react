@@ -1,0 +1,1 @@
+export { VoiceCard } from "./card";

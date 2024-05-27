@@ -1,5 +1,5 @@
 import { ChangeEvent, HTMLInputTypeAttribute } from "react";
-import { FieldErrors, RegisterOptions, UseFormRegister, useForm } from "react-hook-form";
+import { FieldErrors, RegisterOptions, UseFormRegister } from "react-hook-form";
 import { IconType } from "react-icons/lib";
 import classNames from "classnames";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
