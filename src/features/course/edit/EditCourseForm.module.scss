@@ -1,0 +1,43 @@
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
+
+.file {
+  display: none;
+}
+
+.uploader {
+  padding: 8px 24px;
+  margin-bottom: 16px;
+  border: 1px solid $blue;
+  border-radius: 10px;
+  background: $blue;
+  @include flex(center, center);
+  gap: 16px;
+  @include text(16px, 16px, 500, $white);
+  transition: 0.3s ease;
+
+  svg {
+    font-size: 24px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: $white;
+    color: $blue;
+  }
+}
+
+.preview {
+  max-width: 100%;
+}
+
+.title {
+  @include text(14px, 18px, 700, $black);
+  margin-bottom: 8px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}

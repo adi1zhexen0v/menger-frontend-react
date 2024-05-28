@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "react-query";
 import { getCourseBySlug, getLatestCourses, getPublicCourses, getAllCourses } from "../model";
-import { createCourse } from "../model/api";
+import { createCourse, updateCourse } from "../model/api";
 
 export const useAllCourses = () => {
   return useQuery("courses", getAllCourses);
@@ -24,6 +24,20 @@ export const useCreateCourse = () => {
     isLoading,
     isError
   } = useMutation((data: FormData) => createCourse(data));
+
+  return {
+    mutate,
+    isLoading,
+    isError
+  };
+}
+
+export const useUpdateCourse = (id: string) => {
+  const {
+    mutate,
+    isLoading,
+    isError
+  } = useMutation((data: FormData) => updateCourse(id, data));
 
   return {
     mutate,

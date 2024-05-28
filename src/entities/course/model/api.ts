@@ -55,3 +55,18 @@ export const createCourse = async (data: FormData) => {
     throw error;
   }
 }
+
+export const updateCourse = async (id: string, data: FormData) => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.patch<ICourse>(`/courses/${id}`, data, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "multipart/form-data"
+      }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

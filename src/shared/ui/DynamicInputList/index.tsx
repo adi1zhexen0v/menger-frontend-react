@@ -8,16 +8,18 @@ interface DynamicInputListProps {
   title: string;
   placeholder: string;
   Icon: IconType;
+  value?: string[];
   onChange: (value: string[]) => void;
 }
 
 export const DynamicInputList: React.FC<DynamicInputListProps> = ({
   title,
   placeholder,
+  value,
   Icon,
   onChange
 }) => {
-  const [inputs, setInputs] = useState<string[]>([""]);
+  const [inputs, setInputs] = useState<string[]>(value ? value : [""]);
 
   const handleInputChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
     const newInputs = [...inputs];
