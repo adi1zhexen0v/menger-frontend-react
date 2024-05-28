@@ -20,9 +20,13 @@ interface Props {
 export const CourseCard: React.FC<Props> = ({ course }) => {
   const location = useLocation();
   const isDashboard = location.pathname.includes("dashboard");
-  const role: UserRole = useAppSelector((state: RootState) => state.user.user!.role);
+  const role: UserRole | undefined = useAppSelector((state: RootState) => state.user.user?.role);
 
   const getCorrectLink = (slug: string): string => {
+    if (!role) {
+      return `${COURSES_PAGE_ROUTE}/${slug}`;
+    }
+
     if (!isDashboard) {
       return `${COURSES_PAGE_ROUTE}/${slug}`;
     }

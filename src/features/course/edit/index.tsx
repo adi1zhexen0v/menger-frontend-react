@@ -43,7 +43,6 @@ export const EditCourseForm: React.FC<Props> = ({ course }) => {
 
   const handleBenefitsChange = (newBenefits: string[]) => {
     setBenefits(newBenefits);
-    console.log(benefits);
   };
 
   const { mutate, isLoading, isError } = useUpdateCourse(course._id);

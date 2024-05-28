@@ -5,3 +5,5 @@ export interface ILevel {
   order: number;
   courseId: string;
 }
+
+export type ICreateLevelRequest = Pick<ILevel, "title" | "description" | "courseId">;

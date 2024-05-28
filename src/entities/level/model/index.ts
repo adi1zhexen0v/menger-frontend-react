@@ -1,2 +1,2 @@
-export { type ILevel } from "./types";
+export { type ILevel, type ICreateLevelRequest } from "./types";
 export { sortLevelsByOrder } from "./utils";

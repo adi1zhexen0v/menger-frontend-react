@@ -1,0 +1,21 @@
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
+
+.form {
+  border-radius: 16px;
+  padding: 18px 24px;
+  background: $bg-blue;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.title {
+  @include flex();
+  @include text(24px, 28px, 700, $black);
+
+  svg {
+    cursor: pointer;
+  }
+}

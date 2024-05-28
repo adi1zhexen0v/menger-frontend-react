@@ -1,0 +1,8 @@
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
+
+.title {
+  padding-top: 16px;  
+  @include text(20px, 24px, 700, $black);
+  margin-bottom: 8px;
+}
