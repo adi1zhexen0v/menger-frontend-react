@@ -29,7 +29,10 @@ export const DashboardCoursesPage: React.FC = () => {
           <Loader />
         ) : (
           <div className={styles.list}>
-            <CoursesGrid courses={data!} gridTemplateColumns={3} />
+            <CoursesGrid
+              courses={activeUser.role === UserRole.MANAGER ? activeUser.courses : data!}
+              gridTemplateColumns={3}
+            />
           </div>
         )}
       </div>

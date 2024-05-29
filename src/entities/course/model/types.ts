@@ -1,4 +1,5 @@
 import { ILevel } from "@entities/level";
+import { IOrganization } from "@entities/organization";
 
 export interface ICourse {
   _id: string;
@@ -10,6 +11,7 @@ export interface ICourse {
   imageUrl: string;
   isPublic: boolean;
   levels: ILevel[];
+  organizaionId: IOrganization;
   createdAt: string;
   updatedAt: string;
 }

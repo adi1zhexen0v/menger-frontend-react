@@ -14,3 +14,17 @@ export const createLevel = async (data: ICreateLevelRequest) => {
     throw error;
   }
 }
+
+export const getLevelById = async (id: string,) => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.get<ILevel>(`/level/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+} 

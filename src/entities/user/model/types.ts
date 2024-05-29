@@ -1,4 +1,5 @@
 import { ICourse } from "@entities/course";
+import { IOrganization } from "@entities/organization";
 import { UserRole } from "@shared/consts/enums";
 
 export interface IUser {
@@ -16,6 +17,7 @@ export interface IUser {
   courses: ICourse[];
   createdAt: string;
   updatedAt: string;
+  organizationId: IOrganization;
   __v: number;
 }
 

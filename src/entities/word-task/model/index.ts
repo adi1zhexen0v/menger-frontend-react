@@ -1,0 +1,1 @@
+export { type IWordTask, type ICreateWordTaskRequest } from "./types";

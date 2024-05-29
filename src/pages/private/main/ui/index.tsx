@@ -1,3 +1,3 @@
 export const DashboardMainPage: React.FC = () => {
-  return <div>DMainPage</div>;
+  return <div></div>;
 };

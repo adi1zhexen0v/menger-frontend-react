@@ -1,0 +1,43 @@
+@import "../../../../shared/assets/scss/lib/mixins";
+@import "../../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  border-radius: 16px;
+  background: $bg-blue;
+  padding: 16px 24px;
+}
+
+.header {
+  @include flex();
+  gap: 24px;
+
+  svg {
+    font-size: 20px;
+    color: $black;
+    cursor: pointer;
+    transition: 0.4s ease;
+  }
+}
+
+.title {
+  @include text(18px, 24px, 600, $black);
+  
+  span {
+    font-weight: 700;
+    color: $blue;
+  }
+}
+
+.body {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid $border;
+  transition: 0.3s ease;
+}
+
+.list {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

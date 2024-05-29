@@ -1,0 +1,1 @@
+export { DashboardManageWordTaskPage } from "./ui/manage";
