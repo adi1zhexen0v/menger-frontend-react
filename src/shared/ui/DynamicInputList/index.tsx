@@ -4,7 +4,7 @@ import { FaPlus } from "react-icons/fa";
 import { CiTrash } from "react-icons/ci";
 import styles from "./DynamicInputList.module.scss";
 
-interface DynamicInputListProps {
+interface Props {
   title: string;
   placeholder: string;
   Icon: IconType;
@@ -12,7 +12,7 @@ interface DynamicInputListProps {
   onChange: (value: string[]) => void;
 }
 
-export const DynamicInputList: React.FC<DynamicInputListProps> = ({
+export const DynamicInputList: React.FC<Props> = ({
   title,
   placeholder,
   value,

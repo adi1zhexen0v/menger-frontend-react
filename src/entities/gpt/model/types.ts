@@ -5,3 +5,7 @@ export interface IGPTWordRequest {
 export interface IGPTWordTranscriptResponse {
   transcription: string;
 }
+
+export interface IGPTWordTaskWrongOptionsResponse {
+  wrongOptions: string[];
+}

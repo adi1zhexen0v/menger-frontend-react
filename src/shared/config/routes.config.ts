@@ -9,8 +9,9 @@ import { DashboardApplicationsPage } from "@pages/private/applications";
 import { DashboardOrganizationsPage, DashboardEditOrganizationPage } from "@pages/private/organizations";
 import { DashboardWordsPage, DashboardAddWordPage } from "@pages/private/words";
 import { DashboardCoursesPage, DashboardCreateCoursePage, DashboardEditCoursePage, DashboardMyCoursesPage, DashboardSingleCoursesPage } from "@pages/private/courses";
-import { ACCOUNT_ACTIVATE_PAGE_ROUTE, CART_PAGE_ROUTE, COURSES_PAGE_ROUTE, COURSE_PAGE_ROUTE, DASHBOARD_ADD_WORD_PAGE_ROUTE, DASHBOARD_APPLICATIONS_PAGE_ROUTE, DASHBOARD_COURSES_PAGE_ROUTE, DASHBOARD_CREATE_COURSE_PAGE_ROUTE, DASHBOARD_EDIT_COURSE_PAGE_ROUTE, DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE, DASHBOARD_MAIN_PAGE_ROUTE, DASHBOARD_ORGANIZATIONS_PAGE_ROUTE, DASHBOARD_WORDS_PAGE_ROUTE, FAQ_PAGE_ROUTE, LOGIN_PAGE_ROUTE, MAIN_PAGE_ROUTE, REGISTER_PAGE_ROUTE, DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE, DASHBOARD_MY_COURSES_PAGE_ROUTE, DASHBOARD_SINGLE_COURSE_PAGE_ROUTE } from "@shared/consts/routes";
 import { DashboardManageWordTaskPage } from "@pages/private/words-tasks";
+import { DashboardManageTheoryPage } from "@pages/private/theory";
+import { ACCOUNT_ACTIVATE_PAGE_ROUTE, CART_PAGE_ROUTE, COURSES_PAGE_ROUTE, COURSE_PAGE_ROUTE, DASHBOARD_ADD_WORD_PAGE_ROUTE, DASHBOARD_APPLICATIONS_PAGE_ROUTE, DASHBOARD_COURSES_PAGE_ROUTE, DASHBOARD_CREATE_COURSE_PAGE_ROUTE, DASHBOARD_EDIT_COURSE_PAGE_ROUTE, DASHBOARD_EDIT_ORGANIZATION_PAGE_ROUTE, DASHBOARD_MAIN_PAGE_ROUTE, DASHBOARD_ORGANIZATIONS_PAGE_ROUTE, DASHBOARD_WORDS_PAGE_ROUTE, FAQ_PAGE_ROUTE, LOGIN_PAGE_ROUTE, MAIN_PAGE_ROUTE, REGISTER_PAGE_ROUTE, DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE, DASHBOARD_MY_COURSES_PAGE_ROUTE, DASHBOARD_SINGLE_COURSE_PAGE_ROUTE, DASHBOARD_CREATE_THEORY_PAGE_ROUTE } from "@shared/consts/routes";
 
 interface IAppRoute {
   path: string,
@@ -110,6 +111,11 @@ export const routes: IAppRoute[] = [
   {
     path: DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE,
     element: DashboardManageWordTaskPage,
+    authOnly: true
+  },
+  {
+    path: DASHBOARD_CREATE_THEORY_PAGE_ROUTE,
+    element: DashboardManageTheoryPage,
     authOnly: true
   },
   {

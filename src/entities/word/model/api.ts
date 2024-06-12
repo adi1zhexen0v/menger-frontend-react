@@ -14,6 +14,19 @@ export const getAllWords = async () => {
   }
 }
 
+export const getAllUnusedWords = async (id: string) => {
+  try {
+    const res = await axiosInstance.get<IWord[]>(`/word/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
 export const createNewWord = async (data: FormData) => {
   try {
     const token = localStorage.getItem("token");

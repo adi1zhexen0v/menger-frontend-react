@@ -19,4 +19,5 @@ export const DASHBOARD_MY_COURSES_PAGE_ROUTE: string = "/dashboard/my-courses";
 export const DASHBOARD_CREATE_COURSE_PAGE_ROUTE: string = "/dashboard/courses/create";
 export const DASHBOARD_SINGLE_COURSE_PAGE_ROUTE: string = "/dashboard/courses/:slug";
 export const DASHBOARD_EDIT_COURSE_PAGE_ROUTE: string = "/dashboard/courses/edit/:slug";
-export const DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE: string = "/dashboard/levels/word-task/:id";
+export const DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE: string = "/dashboard/levels/word-task/manage/:id";
+export const DASHBOARD_CREATE_THEORY_PAGE_ROUTE: string = "/dashboard/levels/theory/manage/:id";

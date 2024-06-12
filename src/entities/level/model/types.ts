@@ -1,4 +1,5 @@
 import { ICourse } from "@entities/course";
+import { IWordTask } from "@entities/word-task";
 
 export interface ILevel {
   _id: string;
@@ -6,6 +7,8 @@ export interface ILevel {
   description: string;
   order: number;
   courseId: ICourse;
+  theoryId: string;
+  wordsTasks: IWordTask[];
 }
 
 export type ICreateLevelRequest = Pick<ILevel, "title" | "description"> & {

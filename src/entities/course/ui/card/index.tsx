@@ -40,10 +40,6 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
 
   return (
     <div className={styles.course}>
-      {/* <div className={styles.rating}>
-        <FontAwesomeIcon icon={faStar} />
-        4.9
-      </div> */}
       <div className={styles.image}>
         <img src={course.imageUrl} alt={course.title} />
       </div>
@@ -61,3 +57,5 @@ export const CourseCard: React.FC<Props> = ({ course }) => {
     </div>
   );
 };
+
+

@@ -19,17 +19,9 @@ export const useCourseBySlug = (slug: string) => {
 }
 
 export const useCreateCourse = () => {
-  const {
-    mutate,
-    isLoading,
-    isError
-  } = useMutation((data: FormData) => createCourse(data));
+  const { mutate, isLoading, isError } = useMutation((data: FormData) => createCourse(data));
 
-  return {
-    mutate,
-    isLoading,
-    isError
-  };
+  return { mutate, isLoading, isError };
 }
 
 export const useUpdateCourse = (id: string) => {

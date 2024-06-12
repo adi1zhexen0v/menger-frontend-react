@@ -37,7 +37,7 @@ export const Button: React.FC<Props> = ({
     <Link
       to={link!}
       target={isNewBlank ? "_blank" : ""}
-      className={classNames(styles.button, { [styles.link]: isLink })}
+      className={classNames(styles.button, { [styles.link]: isLink, [styles.disabled]: disabled })}
       style={{ marginTop: `${marginTop}px`, gap: `${gap}px` }}>
       {icon && <FontAwesomeIcon icon={icon} />}
       {ReactIcon && <ReactIcon />}

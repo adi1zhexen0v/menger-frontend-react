@@ -1,0 +1,1 @@
+export { ListOfWordsTasks } from "./list";

@@ -14,3 +14,17 @@ export const createWordTask = async (data: ICreateWordTaskRequest) => {
     throw error;
   }
 }
+
+export const getWordTasksOfLevel = async (id: string) => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.get<IWordTask[]>(`/words-tasks/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

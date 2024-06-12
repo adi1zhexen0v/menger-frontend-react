@@ -1,0 +1,1 @@
+export { AddWordTaskForm } from "./form";

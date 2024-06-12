@@ -1,0 +1,40 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.card {
+  border: 1px solid $border;
+  border-radius: 8px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.active {
+  border: 2px solid $blue;
+}
+
+.img {
+  position: relative;
+  
+  img {
+    width: 100%;
+    aspect-ratio: 1/1;
+    object-fit: cover
+  }
+}
+
+.content {
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 4px;
+
+  h4 {
+    @include text(16px, 16px, 700, $black);
+  }
+
+  h6 {
+    @include text(14px, 14px, 600, $gray);
+  }
+}

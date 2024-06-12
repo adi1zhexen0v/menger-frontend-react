@@ -41,3 +41,13 @@
   justify-content: center;
   align-items: center;
 }
+
+.disabled {
+  opacity: 0.7;
+  cursor: not-allowed !important;
+
+  &:hover {
+    background: $blue;
+    color: $white;
+  }
+}

@@ -1,0 +1,1 @@
+export { CreateTheoryForm } from "./create";

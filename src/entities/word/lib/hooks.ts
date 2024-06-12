@@ -1,9 +1,13 @@
 import { useMutation, useQuery } from "react-query"
 import { getAllWords } from "../model"
-import { createNewWord } from "../model/api";
+import { createNewWord, getAllUnusedWords } from "../model/api";
 
 export const useWords = () => {
   return useQuery("words", getAllWords);
+}
+
+export const useUnusedWords = (id: string) => {
+  return useQuery(["words", id], () => getAllUnusedWords(id));
 }
 
 export const useCreateNewWord = () => {

@@ -1,2 +1,2 @@
 export { type IGPTWordRequest, type IGPTWordTranscriptResponse } from "./types";
-export { getTranscriptionOfWord } from "./api";
+export { getTranscriptionOfWord, getWrongOptionsOfWordTask } from "./api";

@@ -1,0 +1,48 @@
+@import "../../../../../shared/assets/scss/lib/variables";
+@import "../../../../../shared/assets/scss/lib/mixins";
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 48px 64px;
+  background: $white;
+  border: 1px solid $border;
+  border-radius: 48px;
+}
+
+.scroll {
+  height: 100%;
+  overflow-y: scroll;
+
+  &::-webkit-scrollbar{
+    width: 15px;
+  }
+  
+  &::-webkit-scrollbar-track{
+    background: $white;
+  }
+  
+  &::-webkit-scrollbar-thumb{
+    background: $blue;
+    border-radius: 10px;
+    border: 3px solid $white;
+  }
+}
+
+.header {
+  @include flex(flex-start, center);
+  gap: 16px;
+}
+
+.part {
+  padding-right: 16px;
+}

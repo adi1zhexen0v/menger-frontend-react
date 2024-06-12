@@ -1,0 +1,75 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 16px 24px;
+}
+
+.item {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  grid-gap: 12px;
+  padding: 8px 12px;
+  border: 1px solid $border;
+  border-radius: 12px;
+}
+
+.word {
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 4px;
+
+  img {
+    width: 100%;
+    object-fit: cover
+  }
+
+  p {
+    @include text(16px, 16px, 700, $black);
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.task {
+  @include flex(flex-start, center);
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid $border;
+  @include text(16px, 18px, 600, $black);
+}
+
+.title {
+  @include text(14px, 18px, 700, $black);
+  margin-bottom: 8px;
+}
+
+.open {
+  cursor: pointer;
+  @include flex(center, center);
+  gap: 16px;
+  padding: 8px 40px;
+  border: 1px solid $border;
+  border-radius: 12px;
+
+  svg {
+    color: $blue;
+    font-size: 32px;
+  }
+
+  p {
+    @include text(16px, 20px, 700, $blue);
+  }
+}
+
+.active {
+  border: 2px solid $blue;
+}
