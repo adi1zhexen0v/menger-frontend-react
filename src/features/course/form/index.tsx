@@ -16,7 +16,7 @@ export const CreateCourseForm: React.FC = () => {
   const { data, isLoading } = useOrganizations();
 
   const [file, setFile] = useState<File | null>(null);
-  const [benefits, setBenefits] = useState<string[]>([]);
+  const [benefits, setBenefits] = useState<string[]>([""]);
   const [isPublic, setIsPublic] = useState<boolean>(true);
   const [organizationId, setOrganizationId] = useState<string>("");
 
@@ -126,6 +126,7 @@ export const CreateCourseForm: React.FC = () => {
           title="Курстың артықшылықтары"
           placeholder="Артықшылықты еңгізіңіз"
           onChange={handleBenefitsChange}
+          value={benefits}
           Icon={IoCheckboxOutline}
         />
         <div>

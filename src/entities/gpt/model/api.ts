@@ -1,5 +1,5 @@
 import { axiosInstance } from "@shared/api";
-import { IGPTWordRequest, IGPTWordTaskWrongOptionsResponse, IGPTWordTranscriptResponse } from "./types";
+import { IGPTSentenceTaskWrongOptionsRequest, IGPTSentenceTaskWrongOptionsResponse, IGPTWordRequest, IGPTWordTaskWrongOptionsResponse, IGPTWordTranscriptResponse } from "./types";
 
 export const getTranscriptionOfWord = async (word: string) => {
   try {
@@ -20,12 +20,26 @@ export const getWrongOptionsOfWordTask = async (word: string) => {
   try {
     const token = localStorage.getItem("token");
     const data: IGPTWordRequest = { word };
-    const res = await axiosInstance.post<IGPTWordTaskWrongOptionsResponse>("/gpt/wrongOptions", data, {
+    const res = await axiosInstance.post<IGPTWordTaskWrongOptionsResponse>("/gpt/words-task", data, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     })
     return res.data;
+  } catch (error) {
+    throw error;
+  }
+}
+
+export const getWrongOptionsOfSentenceTask = async (data: IGPTSentenceTaskWrongOptionsRequest) => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.post<IGPTSentenceTaskWrongOptionsResponse>("/gpt/sentence-task", data, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
+    return res.data.wrongOptions;
   } catch (error) {
     throw error;
   }

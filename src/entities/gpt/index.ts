@@ -1,2 +1,2 @@
-export { useTranscriptionOfWord, useWrongOptionsOfWordTask } from "./lib/hooks";
-export { GetTranscriptionOfWordButton, GetWrongOptionsOfWordTaskButton } from "./ui";
+export { useTranscriptionOfWord, useWrongOptionsOfWordTask, useWrongOptionsOfSentenceTask } from "./lib/hooks";
+export { GetTranscriptionOfWordButton, GetWrongOptionsOfWordTaskButton, GetWrongOptionsOfSentenceTaskButton } from "./ui";

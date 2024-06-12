@@ -1,10 +1,14 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { CiTextAlignCenter } from "react-icons/ci";
+import { FaBookBookmark } from "react-icons/fa6";
+import { RiFolderVideoLine } from "react-icons/ri";
 import { ILevel } from "@entities/level";
 import { Button, PageText } from "@shared/ui";
 import {
   DASHBOARD_CREATE_THEORY_PAGE_ROUTE,
+  DASHBOARD_MANAGE_SENTENCE_TASK_PAGE_ROUTE,
   DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE
 } from "@shared/consts/routes";
 import styles from "./EditLevelItem.module.scss";
@@ -15,9 +19,6 @@ interface Props {
 
 export const EditLevelItem: React.FC<Props> = ({ level }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-
-  console.log(level);
-  console.log(!!level.theoryId);
 
   return (
     <div className={styles.wrapper}>
@@ -40,12 +41,20 @@ export const EditLevelItem: React.FC<Props> = ({ level }) => {
               isLink={true}
               link={DASHBOARD_CREATE_THEORY_PAGE_ROUTE.replace(":id", level._id)}
               title={!!level.theoryId ? "Модульге теория жүктелген" : "Модульдегі теорияны басқару"}
+              ReactIcon={RiFolderVideoLine}
               disabled={!!level.theoryId}
             />
             <Button
               isLink={true}
               link={DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE.replace(":id", level._id)}
-              title="Сөздік модулін басқару"
+              title="Сөздік тапсырмаларың басқару"
+              ReactIcon={FaBookBookmark}
+            />
+            <Button
+              isLink={true}
+              link={DASHBOARD_MANAGE_SENTENCE_TASK_PAGE_ROUTE.replace(":id", level._id)}
+              title="Сөйлем тапсырмаларың басқару"
+              ReactIcon={CiTextAlignCenter}
             />
           </div>
         </div>

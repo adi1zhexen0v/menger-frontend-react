@@ -9,3 +9,12 @@ export interface IGPTWordTranscriptResponse {
 export interface IGPTWordTaskWrongOptionsResponse {
   wrongOptions: string[];
 }
+
+export interface IGPTSentenceTaskWrongOptionsRequest {
+  sentence: string;
+  numberOfWrongOptions: number;
+}
+
+export interface IGPTSentenceTaskWrongOptionsResponse {
+  wrongOptions: string[];
+}

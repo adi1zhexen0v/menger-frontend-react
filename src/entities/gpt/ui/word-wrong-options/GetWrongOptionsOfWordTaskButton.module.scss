@@ -1,0 +1,35 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  border: 1px solid $blue;
+  border-radius: 10px;
+  background: $blue;
+  @include text(16px, 16px, 500, $white);
+  transition: 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: $white;
+    color: $blue;
+  }
+
+  svg {
+    font-size: 16px;
+  }
+}
+
+.disabled {
+  opacity: 0.7;
+    cursor: not-allowed;
+
+    &:hover {
+      background: $blue;
+      color: $white;
+    }
+}

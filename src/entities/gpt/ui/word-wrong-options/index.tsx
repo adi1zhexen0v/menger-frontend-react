@@ -52,7 +52,7 @@ export const GetWrongOptionsOfWordTaskButton: React.FC<Props> = ({
         <Toast
           isFail={true}
           title="Ағылшынша аудармасың толтырыңыз"
-          text="Сөздік тапсырманың қате жауаптарың алу үшін сөзді таңдаңызч"
+          text="Сөздік тапсырманың қате жауаптарың алу үшін сөзді таңдаңыз"
         />
       )}
       <button

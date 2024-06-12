@@ -1,8 +1,8 @@
+import classNames from "classnames";
 import { IoAddOutline } from "react-icons/io5";
 import { IWordTask } from "@entities/word-task/model";
 import { shuffleArray } from "@shared/utils";
 import styles from "./ListOfWordsTasks.module.scss";
-import classNames from "classnames";
 
 interface Props {
   wordsTasks: IWordTask[];

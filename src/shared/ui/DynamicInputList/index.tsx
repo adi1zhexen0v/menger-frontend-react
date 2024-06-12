@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent } from "react";
+import React, { useState, ChangeEvent, useEffect } from "react";
 import { IconType } from "react-icons/lib";
 import { FaPlus } from "react-icons/fa";
 import { CiTrash } from "react-icons/ci";
@@ -15,11 +15,15 @@ interface Props {
 export const DynamicInputList: React.FC<Props> = ({
   title,
   placeholder,
-  value,
+  value = [""],
   Icon,
   onChange
 }) => {
-  const [inputs, setInputs] = useState<string[]>(value ? value : [""]);
+  const [inputs, setInputs] = useState<string[]>(value);
+
+  useEffect(() => {
+    setInputs(value);
+  }, [value]);
 
   const handleInputChange = (index: number) => (event: ChangeEvent<HTMLInputElement>) => {
     const newInputs = [...inputs];

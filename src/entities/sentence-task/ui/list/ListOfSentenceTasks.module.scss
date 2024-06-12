@@ -1,0 +1,50 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  border: 1px solid $border;
+  border-radius: 12px;
+  padding: 8px 16px;
+  display: grid;
+  grid-template-columns: 1fr 5fr 5fr 5fr;
+}
+
+.part {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.title {
+  @include text(14px, 16px, 600, $gray);
+}
+
+.text {
+  @include text(18px, 22px, 700, $black);
+}
+
+.open {
+  cursor: pointer;
+  @include flex(center, center);
+  gap: 16px;
+  padding: 8px 40px;
+  border: 1px solid $border;
+  border-radius: 12px;
+
+  svg {
+    color: $blue;
+    font-size: 32px;
+  }
+
+  p {
+    @include text(16px, 20px, 700, $blue);
+  }
+}

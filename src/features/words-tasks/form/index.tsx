@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { MdErrorOutline } from "react-icons/md";
-import { IWord, WordSelectCard } from "@entities/word";
-import styles from "./AddWordTaskForm.module.scss";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { ICreateWordTaskRequest, useCreateWordTask } from "@entities/word-task";
 import { useParams } from "react-router-dom";
-import { ManualInput, Input, Loader, Toast, Button } from "@shared/ui";
-import { IoCheckmarkOutline, IoDiamondSharp } from "react-icons/io5";
+import { SubmitHandler, useForm } from "react-hook-form";
 import classNames from "classnames";
+import { MdErrorOutline } from "react-icons/md";
+import { CiSearch } from "react-icons/ci";
+import { IoCheckmarkOutline, IoDiamondSharp } from "react-icons/io5";
+import { IWord, WordSelectCard } from "@entities/word";
+import { ICreateWordTaskRequest, useCreateWordTask } from "@entities/word-task";
 import { GetWrongOptionsOfWordTaskButton } from "@entities/gpt";
+import { ManualInput, Input, Loader, Toast, Button } from "@shared/ui";
+import styles from "./AddWordTaskForm.module.scss";
 
 interface Props {
   words: IWord[];
@@ -21,6 +22,7 @@ export const AddWordTaskForm: React.FC<Props> = ({ words, closeForm }) => {
   const [firstWrongOption, setFirstWrongOption] = useState<string>("");
   const [secondWrongOption, setSecondWrongOption] = useState<string>("");
   const [thirdWrongOption, setThirdWrongOption] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>("");
   const [isKazakh, setIsKazakh] = useState<boolean>(false);
 
   const { mutate, isError, isLoading } = useCreateWordTask();
@@ -61,9 +63,15 @@ export const AddWordTaskForm: React.FC<Props> = ({ words, closeForm }) => {
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
       <div>
-        <p className={styles.title}>Керек сөзді таңдау</p>
+        <ManualInput
+          title="Керек сөзді таңдау"
+          placeholder="Сөздің ағылшынша немесе қазақша аудармасың еңгізіңіз"
+          Icon={CiSearch}
+          value={searchValue}
+          setValue={setSearchValue}
+        />
         <div className={styles.words}>
-          {words.map((item) => (
+          {words.filter(word => word.eng.includes(searchValue) || word.kaz.includes(searchValue)).map((item) => (
             <WordSelectCard word={item} activeId={activeId} setActiveId={setActiveId} />
           ))}
         </div>
