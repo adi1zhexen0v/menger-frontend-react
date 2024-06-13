@@ -1,0 +1,124 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.wrapper {
+  margin-top: 32px;
+  @include flex(center, flex-start);
+  gap: 60px;
+}
+
+.card {
+  width: 420px;
+  padding: 40px 40px 32px 40px;
+  border: 1px solid $border;
+  border-radius: 12px;
+
+  img {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  p {
+    @include text(28px, 32px, 800, $black);
+    text-align: center;
+  }
+}
+
+.grid {
+  width: 480px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 24px;
+  margin-bottom: 24px;
+}
+
+.answer {
+  border: 1px solid $border;
+  border-radius: 12px;
+  height: 130px;
+  @include flex(center, center);
+  @include text(28px, 32px, 800, $black);
+  transition: 0.2s ease;
+
+  &:hover {
+    cursor: pointer;
+    background: rgba($light-gray, 0.15);
+  }
+}
+
+.blue {
+  background: $blue;
+  color: $white;
+
+  &:hover {
+    cursor: default;
+    background: $blue;
+  }
+}
+
+.red {
+  background: $red !important;
+  color: $white;
+
+  &:hover {
+    cursor: default;
+    background: $red;
+  }
+}
+
+.toast {
+  position: absolute;
+  padding: 12px 0 12px 36px;
+
+  &-header {
+    @include flex(flex-start, center);
+    gap: 40px;
+    margin-bottom: 8px;
+  }
+
+  h4 {
+    @include text(28px, 32px, 800, $black);
+  }
+
+  p {
+    @include text(20px, 24px, 800, $gray);
+  }
+}
+
+.border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $blue;
+  width: 10px;
+  height: 100%;
+  border-radius: 100px;
+}
+
+.audio {
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  @include flex(center, center);
+  background: $bg-blue;
+  transition: 0.2s ease;
+
+  svg {
+    color: $blue;
+    font-size: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: rgba($bg-blue, 0.8);
+  }
+}
+
+.header {
+  @include flex();
+}

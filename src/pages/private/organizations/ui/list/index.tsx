@@ -14,8 +14,6 @@ export const DashboardOrganizationsPage: React.FC = () => {
     ? user.organizationId._id
     : undefined;
 
-  console.log(user.organizationId);
-
   const filterOrganizations = (organizations: IOrganization[]) => {
     if (organizationId && user.role === UserRole.MANAGER) {
       return organizations.filter((item) => item._id === organizationId);

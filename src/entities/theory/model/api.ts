@@ -37,7 +37,6 @@ export const updateTheoryProgress = async (data: IUpdateTheoryProgress) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`
       }
     });
-    console.log("updateTheoryProgress", res);
     return res.data;
   } catch (error) {
     throw error;

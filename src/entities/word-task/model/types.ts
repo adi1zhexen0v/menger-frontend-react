@@ -18,3 +18,11 @@ export type ICreateWordTaskRequest = Pick<IWordTask, "points" | "diamonds" | "is
   wordId: string;
   levelId: string;
 }
+
+export interface IUpdateWordsTasksProgress {
+  userId: string;
+  levelId: string;
+  courseId: string;
+  points: number;
+  diamonds: number;
+}

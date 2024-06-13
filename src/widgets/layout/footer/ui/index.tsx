@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { COURSES_PAGE_ROUTE, FAQ_PAGE_ROUTE, SUPPORT_PAGE_ROUTE } from "@shared/consts/routes";
+import { COURSES_PAGE_ROUTE, FAQ_PAGE_ROUTE, MAIN_PAGE_ROUTE } from "@shared/consts/routes";
 import styles from "./Footer.module.scss";
 
 export const Footer: React.FC = () => {
@@ -17,14 +17,14 @@ export const Footer: React.FC = () => {
           </div>
           <div>
             <p className={styles.title}>Қызметтер:</p>
+            <Link to={MAIN_PAGE_ROUTE} className={styles.link}>
+              Бастысы
+            </Link>
             <Link to={COURSES_PAGE_ROUTE} className={styles.link}>
               Курстар
             </Link>
             <Link to={FAQ_PAGE_ROUTE} className={styles.link}>
               Сұрақ & Жауап
-            </Link>
-            <Link to={SUPPORT_PAGE_ROUTE} className={styles.link}>
-              Қолдау Қызметі
             </Link>
           </div>
           <div>
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
       </div>
       <div className={styles.bottom}>
         <div className={styles["bottom-container"]}>
-          <p className={styles["bottom-text"]}>2024 &copy; Xplore</p>
+          <p className={styles["bottom-text"]}>2024 &copy; Men'ger</p>
           <p className={styles["bottom-text"]}>Барлық құқықтар қорғалған</p>
         </div>
       </div>

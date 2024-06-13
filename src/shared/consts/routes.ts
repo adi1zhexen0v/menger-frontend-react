@@ -20,6 +20,7 @@ export const DASHBOARD_CREATE_COURSE_PAGE_ROUTE: string = "/dashboard/courses/cr
 export const DASHBOARD_SINGLE_COURSE_PAGE_ROUTE: string = "/dashboard/courses/:slug";
 export const DASHBOARD_EDIT_COURSE_PAGE_ROUTE: string = "/dashboard/courses/edit/:slug";
 export const DASHBOARD_MANAGE_WORD_TASK_PAGE_ROUTE: string = "/dashboard/levels/word-task/manage/:id";
+export const DASHBOARD_WORD_TASK_PAGE_ROUTE: string = "/dashboard/levels/word-task/:id";
 export const DASHBOARD_CREATE_THEORY_PAGE_ROUTE: string = "/dashboard/levels/theory/manage/:id";
 export const DASHBOARD_THEORY_PAGE_ROUTE: string = "/dashboard/levels/theory/:id";
 export const DASHBOARD_MANAGE_SENTENCE_TASK_PAGE_ROUTE: string = "/dashboard/levels/sentence-task/manage/:id";

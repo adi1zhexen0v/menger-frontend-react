@@ -6,7 +6,7 @@ export const ForWhomSection: React.FC = () => {
   return (
     <section className={styles.forwhom}>
       <div>
-        <PageTitle maxWidth={300}>Xplore кімге келеді?</PageTitle>
+        <PageTitle maxWidth={300}>Men'ger кімге келеді?</PageTitle>
         <PageText>
           Біздің курстар кәсіби ағылшын тілін үйренуге ұмтылатын көптеген адамдар үшін ажырамас
           әдістеме. Біздің курстар әсіресе кімге пайдалы болуы мүмкін?

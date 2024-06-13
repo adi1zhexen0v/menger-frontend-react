@@ -25,10 +25,9 @@ export const Navbar: React.FC = () => {
     <header className={styles.header}>
       <nav className={styles.navbar}>
         <div className={styles.part}>
-          <Link to={MAIN_PAGE_ROUTE} className={styles.logo}>
-            Men'ger
-          </Link>
+          <div className={styles.logo}>Men'ger</div>
           <ul className={styles["link-list"]}>
+            <NavLink link={MAIN_PAGE_ROUTE} title="Бастысы" />
             <NavLink link={COURSES_PAGE_ROUTE} title="Курстар" />
             <NavLink link={FAQ_PAGE_ROUTE} title="Сұрақ & Жауап" />
           </ul>

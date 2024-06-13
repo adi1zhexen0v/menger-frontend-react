@@ -1,3 +1,3 @@
-export { type IWordTask, type ICreateWordTaskRequest } from "./model";
-export { useCreateWordTask, useWordsTasksOfLevel } from "./lib/hooks";
-export { ListOfWordsTasks } from "./ui";
+export { type IWordTask, type ICreateWordTaskRequest, type IUpdateWordsTasksProgress } from "./model";
+export { useCreateWordTask, useWordsTasksOfLevel, useUpdateWordsTasksProgress } from "./lib/hooks";
+export { ListOfWordsTasks, WordsTasksModuleResult } from "./ui";

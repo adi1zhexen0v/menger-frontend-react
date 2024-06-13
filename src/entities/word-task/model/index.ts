@@ -1,1 +1,1 @@
-export { type IWordTask, type ICreateWordTaskRequest } from "./types";
+export { type IWordTask, type ICreateWordTaskRequest, type IUpdateWordsTasksProgress } from "./types";
