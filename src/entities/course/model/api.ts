@@ -1,5 +1,6 @@
 import { axiosInstance } from "@shared/api";
 import { ICourse } from "./types";
+import { IMyLevel } from "@entities/level";
 
 export const getAllCourses = async (): Promise<ICourse[]> => {
   try {
@@ -68,5 +69,19 @@ export const updateCourse = async (id: string, data: FormData) => {
     return res.data;
   } catch (error) {
     throw error;
+  }
+}
+
+export const getAllLevelsOfCourse = async (id: string): Promise<IMyLevel[]> => {
+  try {
+    const res = await axiosInstance.get<IMyLevel[]>(`/courses/${id}/levels`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+    });
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return [];
   }
 }

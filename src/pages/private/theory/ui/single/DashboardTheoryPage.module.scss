@@ -1,5 +1,5 @@
-@import "../../../../../shared/assets/scss/lib/mixins";
 @import "../../../../../shared/assets/scss/lib/variables";
+@import "../../../../../shared/assets/scss/lib/mixins";
 
 .container {
   height: 100%;
@@ -13,21 +13,14 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: 48px 40px 48px 64px;
+  padding: 48px 64px;
   background: $white;
   border: 1px solid $border;
   border-radius: 48px;
 }
 
-.header {
-  @include flex();
-}
-
-.list {
-  display: grid;
-  grid-template-columns: 4fr 5fr;
-  grid-gap: 40px;
-  padding-right: 24px;
+.scroll {
+  height: 100%;
   overflow-y: scroll;
 
   &::-webkit-scrollbar{
@@ -43,29 +36,13 @@
     border-radius: 10px;
     border: 3px solid $white;
   }
-
-  div {
-    width: 100%;
-  }
 }
 
-.empty {
-  height: 100%;
-  @include flex(center, center);
-  gap: 32px;
-}
-
-.image {
-  width: 320px;
-}
-
-.info {
-  max-width: 360px;
-  display: flex;
-  flex-direction: column;
+.header {
+  @include flex(flex-start, center);
   gap: 16px;
+}
 
-  p {
-    margin-top: 36px;
-  }
+.part {
+  padding-right: 16px;
 }

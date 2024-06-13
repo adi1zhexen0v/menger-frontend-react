@@ -33,6 +33,21 @@ export const Button: React.FC<Props> = ({
   disabled,
   func
 }) => {
+  if (disabled) {
+    return (
+      <div
+        className={classNames(styles.button, {
+          [styles.link]: isLink,
+          [styles.disabled]: disabled
+        })}
+        style={{ marginTop: `${marginTop}px`, gap: `${gap}px` }}>
+        {icon && <FontAwesomeIcon icon={icon} />}
+        {ReactIcon && <ReactIcon />}
+        {title}
+      </div>
+    );
+  }
+
   return isLink ? (
     <Link
       to={link!}

@@ -9,3 +9,4 @@ export { Toast } from "./Toast";
 export { ManualInput } from "./ManualInput";
 export { BackLink } from "./BackLink";
 export { DynamicInputList } from "./DynamicInputList";
+export { Submit } from "./Submit";

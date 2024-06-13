@@ -11,4 +11,12 @@ export interface ITheory {
   courseId: ICourse;
 }
 
-export type ICreateTheoryRequest = Pick<ITheory, "levelId" | "points" | "diamonds">
+export type ICreateTheoryRequest = Pick<ITheory, "levelId" | "points" | "diamonds">;
+
+export interface IUpdateTheoryProgress {
+  userId: string;
+  levelId: string;
+  courseId: string;
+  points: number;
+  diamonds: number;
+}

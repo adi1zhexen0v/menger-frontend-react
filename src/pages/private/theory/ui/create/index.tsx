@@ -5,7 +5,7 @@ import { BackLink, Loader, PageTitle } from "@shared/ui";
 import { DASHBOARD_EDIT_COURSE_PAGE_ROUTE } from "@shared/consts/routes";
 import styles from "./DashboardManageTheoryPage.module.scss";
 
-export const DashboardCreateTheoryPage: React.FC = () => {
+export const DashboardManageTheoryPage: React.FC = () => {
   const { id } = useParams();
   const { data, isLoading } = useLevelById(id!);
 

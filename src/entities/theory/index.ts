@@ -1,2 +1,2 @@
 export { type ITheory, type ICreateTheory } from "./model";
-export { useCreateTheory } from "./lib/hooks";
+export { useCreateTheory, useTheoryById, useUpdateTheoryProgress } from "./lib/hooks";

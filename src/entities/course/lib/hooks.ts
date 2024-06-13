@@ -1,6 +1,5 @@
 import { useMutation, useQuery } from "react-query";
-import { getCourseBySlug, getLatestCourses, getPublicCourses, getAllCourses } from "../model";
-import { createCourse, updateCourse } from "../model/api";
+import { getCourseBySlug, getLatestCourses, getPublicCourses, getAllCourses, getAllLevelsOfCourse, createCourse, updateCourse } from "../model";
 
 export const useAllCourses = () => {
   return useQuery("courses", getAllCourses);
@@ -16,6 +15,10 @@ export const useLatestCourses = () => {
 
 export const useCourseBySlug = (slug: string) => {
   return useQuery(["course", slug], () => getCourseBySlug(slug));
+}
+
+export const useLevelsOfCourse = (id: string) => {
+  return useQuery(["course", id], () => getAllLevelsOfCourse(id));
 }
 
 export const useCreateCourse = () => {

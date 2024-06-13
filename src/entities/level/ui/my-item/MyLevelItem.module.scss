@@ -1,0 +1,59 @@
+@import "../../../../shared/assets/scss/lib/mixins";
+@import "../../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  border: 1px solid $border;
+  border-radius: 16px;
+  background: rgba($border, 0.3);
+  padding: 20px 32px;
+}
+
+.header {
+  @include flex();
+  gap: 24px;
+
+  svg {
+    font-size: 20px;
+    color: $black;
+    cursor: pointer;
+    transition: 0.4s ease;
+  }
+}
+
+.title {
+  @include text(18px, 24px, 600, $black);
+  
+  span {
+    font-weight: 700;
+    color: $blue;
+  }
+}
+
+.body {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid $border;
+  transition: 0.3s ease;
+}
+
+.buttons {  
+  margin-top: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 12px 16px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "a b"
+    "c c";
+
+  button {
+    width: 100%;
+  }
+}
+
+.a { grid-area: a; }
+
+.b { grid-area: b; }
+
+.c { grid-area: c; }

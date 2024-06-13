@@ -7,6 +7,7 @@ interface Props {
   marignBottom?: number;
   textAlign?: TextAlign;
   isSmall?: boolean;
+  isGray?: boolean;
   children: string;
 }
 
@@ -15,8 +16,23 @@ export const PageTitle: React.FC<Props> = ({
   maxWidth,
   marignBottom,
   textAlign,
-  isSmall
+  isSmall,
+  isGray = false
 }) => {
+  if (isGray) {
+    return (
+      <h2
+        className={styles.gray}
+        style={
+          maxWidth || textAlign || marignBottom
+            ? { maxWidth: `${maxWidth}px`, textAlign, marginBottom: `${marignBottom}px` }
+            : {}
+        }>
+        {children}
+      </h2>
+    );
+  }
+
   return isSmall ? (
     <h2
       className={styles.dashboard}

@@ -1,14 +1,17 @@
 import { useParams } from "react-router-dom";
-import { CourseInfo } from "@widgets/course";
-import { useCourseBySlug } from "@entities/course";
+import { MyCourseInfo, MyCourseLevels } from "@widgets/course";
+import { useCourseBySlug, useLevelsOfCourse } from "@entities/course";
 import { Loader, PageTitle } from "@shared/ui";
 import styles from "./DashboardSingleCoursePage.module.scss";
 
 export const DashboardSingleCoursesPage: React.FC = () => {
   const { slug } = useParams();
-  const { data, isLoading } = useCourseBySlug(slug!);
-  const title: string = isLoading ? "" : data!.title;
-
+  const { data: course, isLoading: courseIsLoading } = useCourseBySlug(slug!);
+  const { data: levels, isLoading: levelsIsLoading } = useLevelsOfCourse(course?._id!);
+  const isLoading = courseIsLoading || levelsIsLoading;
+  const title: string = isLoading ? "" : course!.title;
+  console.log(levels);
+  
   return (
     <section className={styles.container}>
       <div className={styles.header}>
@@ -19,7 +22,8 @@ export const DashboardSingleCoursesPage: React.FC = () => {
           <Loader />
         ) : (
           <div className={styles.list}>
-            <CourseInfo course={data!} />
+            <MyCourseInfo course={course!} />
+            <MyCourseLevels levels={levels!} />
           </div>
         )}
       </div>

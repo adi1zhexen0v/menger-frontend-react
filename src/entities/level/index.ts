@@ -1,3 +1,3 @@
-export { type ILevel, type ICreateLevelRequest, sortLevelsByOrder } from "./model";
-export { LevelItem, EditLevelItem } from "./ui";
+export { type ILevel, type ICreateLevelRequest, type IMyLevel, sortLevelsByOrder, sortMyLevelsByOrder } from "./model";
+export { LevelItem, EditLevelItem, MyLevelItem } from "./ui";
 export { useCreateLevel, useLevelById } from "./lib/hooks";

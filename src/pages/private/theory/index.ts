@@ -1,1 +1,2 @@
-export { DashboardCreateTheoryPage as DashboardManageTheoryPage } from "./ui/create";
+export { DashboardManageTheoryPage } from "./ui/create";
+export { DashboardTheoryPage } from "./ui/single";

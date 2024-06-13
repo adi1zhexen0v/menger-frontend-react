@@ -15,7 +15,7 @@ export const createLevel = async (data: ICreateLevelRequest) => {
   }
 }
 
-export const getLevelById = async (id: string,) => {
+export const getLevelById = async (id: string) => {
   try {
     const token = localStorage.getItem("token");
     const res = await axiosInstance.get<ILevel>(`/level/${id}`, {

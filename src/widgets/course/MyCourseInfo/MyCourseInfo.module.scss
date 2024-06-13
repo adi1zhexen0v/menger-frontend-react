@@ -1,0 +1,11 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.wrapper {
+  width: calc(200%/3);
+}
+
+.title {
+  @include text(22px, 28px, 600, $blue);
+  margin: 24px 0 16px;
+}

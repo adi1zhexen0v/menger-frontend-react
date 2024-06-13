@@ -1,0 +1,15 @@
+@import "../../../shared/assets/scss/lib/variables";
+@import "../../../shared/assets/scss/lib/mixins";
+
+.block {
+  width: 100%;
+  position: relative;
+  @include flex(center, center);
+  height: 100%;
+}
+
+.video {
+  border: 1px solid $border;
+  aspect-ratio: 16/9;
+  height: 100%;
+}

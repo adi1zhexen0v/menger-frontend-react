@@ -1,0 +1,13 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.title {
+  @include text(22px, 28px, 600, $blue);
+  margin: 24px 0 16px;
+}

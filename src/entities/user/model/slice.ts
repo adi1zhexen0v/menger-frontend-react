@@ -25,8 +25,12 @@ export const userSlice = createSlice({
     deleteActiveUser(state, _) {
       state.token = "";
       state.user = null;
+    },
+    updatePoints(state, action) {
+      state.user!.diamonds += +action.payload.diamonds;
+      state.user!.points += +action.payload.points;
     }
   }
 });
 
-export const { setActiveUser, deleteActiveUser, updateActiveUser } = userSlice.actions;
+export const { setActiveUser, deleteActiveUser, updateActiveUser, updatePoints } = userSlice.actions;
