@@ -11,3 +11,4 @@ export { BackLink } from "./BackLink";
 export { DynamicInputList } from "./DynamicInputList";
 export { Submit } from "./Submit";
 export { ProgressBar } from "./ProgressBar";
+export { AudioPlayer } from "./AudioPlayer";

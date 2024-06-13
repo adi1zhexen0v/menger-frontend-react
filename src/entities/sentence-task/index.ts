@@ -1,2 +1,2 @@
 export { type ISentenceTask } from "./model";
-export { ListOfSentenceTasks } from "./ui";
+export { ListOfSentenceTasks, SentenceTasksModuleResult } from "./ui";

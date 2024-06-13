@@ -83,3 +83,15 @@ export const transferCoursesFromCartToCourses = async (): Promise<IUser> => {
     throw error;
   }
 }
+
+export const addWordsToDictionary = async (wordsIds: string[]) => {
+  try {
+    const token = localStorage.getItem("token");
+    const res = await axiosInstance.patch("/users/dictionary", { wordsIds }, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return res.data;
+  } catch (error) {
+    throw error;
+  }
+}

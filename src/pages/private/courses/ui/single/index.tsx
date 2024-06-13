@@ -9,13 +9,11 @@ export const DashboardSingleCoursesPage: React.FC = () => {
   const { data: course, isLoading: courseIsLoading } = useCourseBySlug(slug!);
   const { data: levels, isLoading: levelsIsLoading } = useLevelsOfCourse(course?._id!);
   const isLoading = courseIsLoading || levelsIsLoading;
-  const title: string = isLoading ? "" : course!.title;
-  console.log(levels);
-  
+
   return (
     <section className={styles.container}>
       <div className={styles.header}>
-        <PageTitle isSmall={true}>{title}</PageTitle>
+        <PageTitle isSmall={true}>Менің курстарым</PageTitle>
       </div>
       <div className={styles.wrapper}>
         {isLoading ? (

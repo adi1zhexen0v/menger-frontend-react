@@ -7,7 +7,7 @@ import { RiFolderVideoLine } from "react-icons/ri";
 import { IMyLevel } from "@entities/level";
 import { Button, PageText } from "@shared/ui";
 import styles from "./MyLevelItem.module.scss";
-import { DASHBOARD_THEORY_PAGE_ROUTE, DASHBOARD_WORD_TASK_PAGE_ROUTE } from "@shared/consts/routes";
+import { DASHBOARD_SENTENCE_TASK_PAGE_ROUTE, DASHBOARD_THEORY_PAGE_ROUTE, DASHBOARD_WORD_TASK_PAGE_ROUTE } from "@shared/consts/routes";
 
 interface Props {
   level: IMyLevel;
@@ -85,6 +85,8 @@ export const MyLevelItem: React.FC<Props> = ({ level }) => {
                 disabled={
                   !isTheoryCompleted || !areWordsTasksCompleted || areSentenceTasksCompleted
                 }
+                isLink={true}
+                link={DASHBOARD_SENTENCE_TASK_PAGE_ROUTE.replace(":id", level._id)}
               />
             </div>
           </div>

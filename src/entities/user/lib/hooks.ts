@@ -3,7 +3,7 @@ import { useMutation } from "react-query";
 import { RootState } from "@app/store";
 import { useAppDispatch, useAppSelector } from "@shared/lib/hooks";
 import { IAuthLoginRequest, IAuthRegisterRequest, IAuthActiveRequest, IAuthResponse, IUser, addCourseToCart, removeCourseToCart, getMe, login, register, setActiveUser, updateActiveUser } from "../model";
-import { activate, transferCoursesFromCartToCourses } from "../model/api";
+import { activate, addWordsToDictionary, transferCoursesFromCartToCourses } from "../model/api";
 
 export const useAuth = () => {
   const user: IUser | null = useAppSelector((state: RootState) => state.user.user);
@@ -113,5 +113,10 @@ export const useTransferCoursesFromCartToCourses = () => {
       dispatch(updateActiveUser(data));
     }
   });
+  return { mutate, isLoading, isError };
+}
+
+export const useAddWordsToDictionary = () => {
+  const { mutate, isLoading, isError } = useMutation((wordsIds: string[]) => addWordsToDictionary(wordsIds));
   return { mutate, isLoading, isError };
 }

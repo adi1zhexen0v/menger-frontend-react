@@ -12,7 +12,7 @@
   border-radius: 12px;
   padding: 8px 16px;
   display: grid;
-  grid-template-columns: 1fr 5fr 5fr 5fr;
+  grid-template-columns: 1fr 8fr 8fr 6fr 1fr;
 }
 
 .part {
@@ -33,7 +33,7 @@
 
 .open {
   cursor: pointer;
-  @include flex(center, center);
+  @include flex(center, flex-start);
   gap: 16px;
   padding: 8px 40px;
   border: 1px solid $border;
@@ -47,4 +47,10 @@
   p {
     @include text(16px, 20px, 700, $blue);
   }
+}
+
+.center {
+  height: 100%;
+  width: 100%;
+  @include flex(center, center);
 }

@@ -19,6 +19,8 @@ export const GetWrongOptionsOfSentenceTaskButton: React.FC<Props> = ({
   const [valueIsEmpty, setValueIsEmpty] = useState<boolean>(false);
   const { mutate, isLoading, isError } = useWrongOptionsOfSentenceTask();
 
+  console.log("EngOrKaz:", value);
+
   const getWrongOptionsOfSentenceTask = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 

@@ -17,12 +17,12 @@ export const Header: React.FC<Props> = ({ activeUser }) => {
       {activeUser.role === UserRole.STUDENT && (
         <div className={styles.list}>
           <div className={styles.item}>
-            <img src={diamondImage} alt="Diamond" />
-            <h6>{activeUser.diamonds}</h6>
-          </div>
-          <div className={styles.item}>
             <img src={pointsImage} alt="XP" />
             <h6>{activeUser.points}</h6>
+          </div>
+          <div className={styles.item}>
+            <img src={diamondImage} alt="Diamond" />
+            <h6>{activeUser.diamonds}</h6>
           </div>
         </div>
       )}

@@ -1,29 +1,24 @@
+import { useEffect, useRef, useState } from "react";
+import { AiFillSound } from "react-icons/ai";
+import classNames from "classnames";
+import { RootState } from "@app/store";
+import { updatePoints } from "@entities/user/model";
 import {
   IWordTask,
   WordsTasksModuleResult,
   useUpdateWordsTasksProgress
 } from "@entities/word-task";
 import { Loader, PageTitle, ProgressBar, Submit, Toast } from "@shared/ui";
-import styles from "./WordsTasksModule.module.scss";
-import { useEffect, useRef, useState } from "react";
 import { formatTime, shuffleArray } from "@shared/utils";
-import { AiFillSound } from "react-icons/ai";
-import classNames from "classnames";
 import { useAppDispatch, useAppSelector } from "@shared/lib/hooks";
-import { updatePoints } from "@entities/user/model";
-import { RootState } from "@app/store";
+import { ToastTypes } from "@shared/consts/enums";
+import styles from "./WordsTasksModule.module.scss";
 
 interface Props {
   wordsTasks: IWordTask[];
   link: string;
   levelId: string;
   courseId: string;
-}
-
-enum ToastTypes {
-  CORRECT = "correct",
-  MISTAKE = "mistake",
-  NONE = "none"
 }
 
 export const WordsTasksModule: React.FC<Props> = ({ wordsTasks, link, levelId, courseId }) => {
@@ -37,6 +32,7 @@ export const WordsTasksModule: React.FC<Props> = ({ wordsTasks, link, levelId, c
   const [notCompletedTasks, setNotCompletedTasks] = useState<IWordTask[]>(wordsTasks);
   const [points, setPoints] = useState<number>(0);
   const [diamonds, setDiamonds] = useState<number>(0);
+  const [wordsIds, setWordsIds] = useState<string[]>([]);
   const activeTask = notCompletedTasks.find((item) => item._id === activeId);
   const activeWord = activeTask?.wordId;
   const [options, setOptions] = useState<string[]>([]);
@@ -97,6 +93,7 @@ export const WordsTasksModule: React.FC<Props> = ({ wordsTasks, link, levelId, c
 
     if (toast === ToastTypes.CORRECT) {
       setCorrectTasks([...correctTasks, activeId]);
+      setWordsIds([...wordsIds, activeWord!._id]);
     } else {
       updatedNotCompletedTasks = [
         ...updatedNotCompletedTasks,
@@ -129,6 +126,7 @@ export const WordsTasksModule: React.FC<Props> = ({ wordsTasks, link, levelId, c
     }
     return (
       <WordsTasksModuleResult
+        wordsIds={wordsIds}
         link={link}
         points={points}
         diamonds={diamonds}

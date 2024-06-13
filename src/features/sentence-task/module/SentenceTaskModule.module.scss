@@ -1,0 +1,97 @@
+@import "../../../shared/assets/scss/lib/mixins";
+@import "../../../shared/assets/scss/lib/variables";
+
+.container {
+  position: relative;
+  height: 100%;
+}
+
+.header {
+  @include flex();
+}
+
+.wrapper {
+  margin-top: 48px;
+  height: 100%;
+}
+
+.question {
+  margin: 0 auto;
+  padding: 24px 0;
+  max-width: 1080px;
+  background: rgba($border, 0.5);
+  border: 1px solid $border;
+  border-radius: 12px;
+  margin-bottom: 80px;
+  text-align: center;
+  @include text(28px, 36px, 800, $black);
+}
+
+.sentence {
+  height: 56px;
+  margin: 80px 0;
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 18px;
+
+  &-item {
+    border-radius: 12px;
+    background: $darken-blue;
+    padding: 16px 40px;
+    @include text(24px, 24px, 800, $white);
+  }
+}
+
+
+.words {
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 18px;
+
+  &-item {
+    border: 1px solid $border;
+    border-radius: 12px;
+    background: $white;
+    padding: 16px 40px;
+    @include text(24px, 24px, 800, $black);
+  }
+}
+
+.line {
+  @include flex(center, center);
+  gap: 32px;
+}
+
+.red {
+  background: $red !important;
+}
+
+.toast {
+  position: relative;
+  max-width: 1080px;
+  padding: 12px 0 12px 36px;
+
+  &-header {
+    @include flex(flex-start, center);
+    gap: 40px;
+    margin-bottom: 8px;
+  }
+
+  h4 {
+    @include text(28px, 32px, 800, $black);
+  }
+
+  p {
+    @include text(20px, 24px, 800, $gray);
+  }
+}
+
+.border {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: $blue;
+  width: 10px;
+  height: 100%;
+  border-radius: 100px;
+}

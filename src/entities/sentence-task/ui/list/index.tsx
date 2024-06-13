@@ -1,6 +1,7 @@
 import { IoAddOutline } from "react-icons/io5";
 import { ISentenceTask } from "@entities/sentence-task";
 import styles from "./ListOfSentenceTasks.module.scss";
+import { AudioPlayer } from "@shared/ui";
 
 interface Props {
   sentenceTasks: ISentenceTask[];
@@ -16,7 +17,7 @@ export const ListOfSentenceTasks: React.FC<Props> = ({ sentenceTasks, func }) =>
       </div>
       {sentenceTasks.map((item, index) => (
         <div className={styles.card}>
-          <div className={styles.part}>
+          <div className={styles.center}>
             <p className={styles.text}>{index + 1}</p>
           </div>
           <div className={styles.part}>
@@ -37,6 +38,9 @@ export const ListOfSentenceTasks: React.FC<Props> = ({ sentenceTasks, func }) =>
                 </span>
               ))}
             </p>
+          </div>
+          <div className={styles.center}>
+            {item.audioUrl && <AudioPlayer audioUrl={item.audioUrl} />}
           </div>
         </div>
       ))}

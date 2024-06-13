@@ -1,0 +1,85 @@
+@import "../../../../shared/assets/scss/lib/variables";
+@import "../../../../shared/assets/scss/lib/mixins";
+
+.container {
+  height: 100%;
+  @include flex(center, center);
+}
+
+.wrapper {
+  @include flex(center, flex-start);
+  gap: 100px;
+}
+
+.correct {
+  width: 320px;
+  @include flex(center, center);
+  flex-direction: column;
+  gap: 28px;
+
+  img {
+    width: 100%;
+  }
+
+  h2 {
+    max-width: 80%;
+    text-align: center;
+    @include text(28px, 32px, 800, $black);
+  }
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.title {
+  @include text(24px, 28px, 800, $black);
+  margin-bottom: 12px;
+}
+
+.time {
+  @include text(20px, 24px, 800, rgba($gray, 0.7));
+}
+
+.numbers {
+  @include flex(flex-start, center);
+  gap: 48px;
+}
+
+.points {
+  width: 200px;
+  @include flex(flex-start, center);
+  gap: 24px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border-left: 6px solid $yellow;
+  background: rgba($yellow, 0.2);
+
+  img {
+    width: 40px;
+  }
+
+  p {
+    @include text(20px, 24px, 800, $black);
+  }
+}
+
+.diamonds {
+  width: 200px;
+  @include flex(flex-start, center);
+  gap: 24px;
+  padding: 16px 24px;
+  border-radius: 12px;
+  border-left: 6px solid $blue;
+  background: rgba($blue, 0.2);
+
+  img {
+    width: 40px;
+  }
+
+  p {
+    @include text(20px, 24px, 800, $black);
+  }
+}

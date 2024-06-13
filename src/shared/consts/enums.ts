@@ -12,3 +12,9 @@ export enum VoiceType {
   OLIVIA = "en-US-Neural2-E",
   SOPHIA = "en-US-Studio-O"
 }
+
+export enum ToastTypes {
+  CORRECT = "correct",
+  MISTAKE = "mistake",
+  NONE = "none"
+}

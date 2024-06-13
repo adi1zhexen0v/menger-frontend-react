@@ -1,0 +1,21 @@
+@import "../../assets/scss/lib/variables";
+@import "../../assets/scss/lib/mixins";
+
+.audio {
+  width: 40px;
+  aspect-ratio: 1/1;
+  border-radius: 100%;
+  @include flex(center, center);
+  background: $bg-blue;
+  transition: 0.2s ease;
+
+  svg {
+    color: $blue;
+    font-size: 20px;
+  }
+
+  &:hover {
+    cursor: pointer;
+    background: rgba($bg-blue, 0.8);
+  }
+}
